@@ -7,6 +7,7 @@
 var app = require("../app");
 var debug = require("debug")("cypher-text:server");
 var http = require("http");
+const db = require("../models");
 
 /**
  * Get port from environment and store in Express.
@@ -24,11 +25,27 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+db.sequelize
+	.authenticate()
+	.then(() => {
+		server.listen(port);
+		server.on("error", onError);
+		server.on("listening", onListening);
 
-server.listen(port);
-server.on("error", onError);
-server.on("listening", onListening);
-
+		db.sequelize
+			.sync({ force: false })
+			.then(() => {
+				console.log(
+					"All table have been successfully created, if one doesn't already exist"
+				);
+			})
+			.catch(err => {
+				console.log("This error occured", err);
+			});
+	})
+	.catch(err => {
+		console.error("Unable to connect to the database:", err);
+	});
 /**
  * Normalize a port into a number, string, or false.
  */

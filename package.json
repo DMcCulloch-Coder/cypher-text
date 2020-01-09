@@ -1,17 +1,35 @@
 {
-	"name": "cypher-text",
-	"version": "0.0.0",
-	"private": true,
-	"scripts": {
-		"start": "node ./bin/www"
-	},
+	"name": "project2-cypher-text",
+	"version": "1.0.0",
+	"description": "### `git clone https://github.com/DMcCulloch-Coder/cypher-text.git`",
+	"main": "app.js",
 	"dependencies": {
-		"cookie-parser": "~1.4.4",
-		"debug": "~2.6.9",
-		"express": "~4.16.1",
-		"hbs": "~4.0.4",
-		"http-errors": "~1.6.3",
-		"morgan": "~1.9.1",
+		"cookie-parser": "^1.4.4",
+		"express": "^4.17.1",
+		"express-handlebars": "^3.1.0",
+		"hbs": "^4.0.6",
+		"http-errors": "^1.7.3",
+		"morgan": "^1.9.1",
+		"mysql2": "^2.1.0",
+		"sequelize": "^5.21.3",
+		"sequelize-cli": "^5.5.1",
 		"socket.io": "^2.3.0"
-	}
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node ./bin/www",
+		"seed-data": "sequelize-cli db:seed:all "
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/DMcCulloch-Coder/cypher-text.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/DMcCulloch-Coder/cypher-text/issues"
+	},
+	"homepage": "https://github.com/DMcCulloch-Coder/cypher-text#readme"
 }
