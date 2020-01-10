@@ -1,9 +1,6 @@
-{{!-- {{#each tiles}}
+{{!-- {{#each words}}
     <p>{{word}}
-        data-id="{{id}}"
-        {{#if visible || keymaster}} #CSS-visible {{else}} #CSS-not-vissible {{/if}}
+        data-id="{{id}}" name="tile-{{id}}" data-group="{{group_type}}" class="tile"
+        {{#if visible || !players.type}} class="tile-visible" {{else}} class="tile-not-vissible" {{/if}}
     </p>
 {{/each}}  --}}
-
-{{!-- onclick-listener? --}}
-
