@@ -7,7 +7,7 @@ Clone the repository to your local machine: https://github.com/DMcCulloch-Coder/
 ### `npm install`
 
 - Installs all pre-reqs needed to run the application
-- Create the mySQL database called "cypher-text-db
+- Create the mySQL database called "cypher-text-db"
 
 ### `npm start`
 
