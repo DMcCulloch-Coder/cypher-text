@@ -1,4 +1,4 @@
-{{!-- {{#if keymaster && turn}}
+{{#if keymaster}}
     <input type="text" size="6" name="clue-text"> 
     <select name="clue-number">
         <option value="1">1</option>
@@ -10,9 +10,11 @@
     </select>
 
     <button id="submit-clue">Submit</button>
-    number sends to turn logic for selected tiles until incorrect or number reached
-    append to past clues when new turn?
+    {{!-- number sends to turn logic for selected tiles until incorrect or number reached
+    append to past clues when new turn? --}}
 
     {{else}}
-    view clue only
-{{/if}} --}}
+    {{!-- view clue only --}}
+{{/if}}
+
+{{!-- "pass-turn" button --}}
