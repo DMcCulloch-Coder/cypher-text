@@ -1,10 +1,13 @@
-const socket = io();
-let randomNUmber = Math.random();
-socket.emit("hello-world", randomNUmber);
-socket.on("hello-world", data => {
-    console.log(`User send the number: ${data}`);
+$(document).ready(() => {
+
+    $.ajax({
+        url: "/api/words",
+        method: "GET"
+    }).then((res) => {
+        console.log(res);
+    });
+
 });
-alert("working");
 
 // new or returning user
 //"/api/players/:name?"
