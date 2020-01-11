@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const exphbs = require("express-handlebars");
 
 const indexRouter = require("./routes/index");
 const wordRouter = require("./routes/player-api");
@@ -12,8 +13,9 @@ const roomRouter = require("./routes/word-api");
 const app = express();
 
 // view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "hbs");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 app.use(logger("dev"));
 app.use(express.json());
