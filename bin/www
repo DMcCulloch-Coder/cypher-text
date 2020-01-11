@@ -32,8 +32,8 @@ function normalizePort(val) {
 }
 
 /**
-* Event listener for HTTP server "error" event.
-*/
+ * Event listener for HTTP server "error" event.
+ */
 
 function onError(error) {
     if (error.syscall !== "listen") {
@@ -58,8 +58,8 @@ function onError(error) {
 }
 
 /**
-* Event listener for HTTP server "listening" event.
-*/
+ * Event listener for HTTP server "listening" event.
+ */
 
 function onListening() {
     var addr = server.address();
@@ -77,8 +77,12 @@ app.set("port", port);
 //setup connection listener for socket.io
 io.on("connection", socket => {
     console.log(`A user has connected with socket id: ${socket.id}`);
-    socket.on("disconnect", function() {
+    socket.on("disconnect", () => {
         console.log(`A user has disconnected with socket id: ${socket.id}`);
+    });
+    socket.on("hello-world", data => {
+        console.log(`A user has sent a number: ${data}`);
+        io.emit("hello-world", data);
     });
 });
 
