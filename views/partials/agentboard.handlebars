@@ -1,6 +1,10 @@
 {{#each words}}
-    <p data-id="{{id}}" name="tile-{{id}}" data-group="{{group_type}}" class="tile tile-agent"> 
-    {{!-- view css to be handled server side later --}}
-        {{word}}
-    </p>
+    <div data-id="{{id}}" name="card-{{id}}" data-group="{{group_type}}" class="card card-agent">
+        <div class="card__side card__side--front  card__side--front-{{id}} "> {{!-- visible-{{visible}}// view css to be handled server side later --}}
+            {{word}}
+        </div>
+        <div class="card__side card__side--back  card__side--back-{{id}}">
+            {{word}}
+        </div>
+    </div>
 {{/each}} 
