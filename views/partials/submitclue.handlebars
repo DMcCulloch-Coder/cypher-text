@@ -1,5 +1,4 @@
 <div class="clue">
-    {{#if keymaster}}
         <input type="text" name="clue-text"> 
         <select size="6" name="clue-number">
             <option value="1">1</option>
@@ -9,13 +8,6 @@
             <option value="5">5</option>
             <option value="6">6</option>
         </select>
-
         <button id="submit-clue">Submit</button>
-        {{!-- number sends to turn logic for selected tiles until incorrect or number reached
-        append to past clues when new turn? --}}
-
-        {{else}}
-        {{!-- view clue only --}}
-    {{/if}}
 </div>
 {{!-- "pass-turn" button --}}
