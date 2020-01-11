@@ -1,13 +1,10 @@
-$(document).on("ready", () => {
-    // const socket = io();
-    // let randomNUmber = Math.random();
-    // socket.emit("hello-world", randomNUmber);
-
-    //place holder for ajax api requests
-
-    alert("working");
-
+const socket = io();
+let randomNUmber = Math.random();
+socket.emit("hello-world", randomNUmber);
+socket.on("hello-world", data => {
+    console.log(`User send the number: ${data}`);
 });
+alert("working");
 
 // new or returning user
 //"/api/players/:name?"
