@@ -3,7 +3,7 @@ const db = require("../models");
 const router = express.Router();
 
 /* Room API Routes */
-router.get("/api/rooms", (req, res, next) => {
+router.get("/api/rooms", (req, res) => {
     console.log(1);
     db.Rooms.findAll({
         include: [
@@ -17,7 +17,7 @@ router.get("/api/rooms", (req, res, next) => {
     });
 });
 
-router.get("/api/rooms/:id", (req, res, next) => {
+router.get("/api/rooms/:id", (req, res) => {
     db.Rooms.findAll({
         where: { id: req.params.id },
         include: [
@@ -31,21 +31,21 @@ router.get("/api/rooms/:id", (req, res, next) => {
     });
 });
 
-router.post("/api/rooms", (req, res, next) => {
+router.post("/api/rooms", (req, res) => {
     db.Rooms.create(req.body).then(result => {
         res.json(result);
         // res.render("index", result);
     });
 });
 
-router.put("/api/rooms/:id", (req, res, next) => {
+router.put("/api/rooms/:id", (req, res) => {
     db.Rooms.update(req.body, { where: { id: req.params.id } }).then(result => {
         res.json(result);
         // res.render("index", result);
     });
 });
 
-router.delete("/api/rooms/:id", (req, res, next) => {
+router.delete("/api/rooms/:id", (req, res) => {
     db.Rooms.destroy({ where: { id: req.params.id } }).then(result => {
         res.json(result);
         // res.render("index", result);
