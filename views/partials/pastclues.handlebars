@@ -4,3 +4,20 @@ if team a
     display each
 else
     display each --}}
+    
+<div class="past-clues">
+    <div class="past-clues-1"><h3>Team A</h3>
+        {{#each pastClue}}
+            {{#if team == 1}}
+                <p>{{data}}</p>
+            {{/if}}
+        {{/each}}
+    </div>
+    <div class="past-clues-2"><h3>Team B</h3>
+        {{#each pastClue}}
+            {{#if team == 2}}
+                <p>{{data}}</p>
+            {{/if}}
+        {{/each}}
+    </div>
+</div>

@@ -3,3 +3,26 @@ display scores?
 clear out past clues?
 determine new keymasters?
 game over? --}}
+
+
+<div class="active-players">
+    <div class="assigned-1">
+        {{#each players}}
+            {{#if player_group == 1}}
+                <p class="active-assigned-user-1">{{player_name}}</p>
+            {{/if}}
+        {{/each}}
+    </div>
+    <div class="assigned-2">
+        {{#each players}}
+            {{#if player_group == 2}}
+                <p class="active-assigned-user-2">{{player_name}}</p>
+            {{/if}}
+        {{/each}}
+    </div>
+</div>
+
+<div class="key-master-assign">
+    {{!-- logic to reassign or let them select new with each round? --}}
+    {{!-- assign player_type by player_id? --}}
+</div>
