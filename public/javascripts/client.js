@@ -1,7 +1,15 @@
 $(document).on(ready, () => {
-    $();
-});
 
+    alert("working");
+
+    // $.ajax({
+    //     url: "/api/get",
+    //     method: "GET"
+    // }).then((res) => {
+    //     console.log(res);
+    // });
+
+});
 
 //place holder for ajax api requests
 //------ Inputs -----
