@@ -1,7 +1,8 @@
-{{#each words}}
+{{#each Words}}
     <div data-id="{{id}}" name="card-{{id}}" data-group="{{group_type}}" class="card card-master">
+        <p>tile</p>
         <div class="card__side card__side--front  card__side--front-{{id}} not-selected"> {{!-- visible-{{visible}}// view css to be handled server side later --}}
-            {{word}}
+            {{word}} 
         </div>
         <div class="card__side card__side--back  card__side--back-{{id}} selected">
             {{word}}
