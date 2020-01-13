@@ -80,9 +80,12 @@ io.on("connection", socket => {
     socket.on("disconnect", () => {
         console.log(`A user has disconnected with socket id: ${socket.id}`);
     });
-    socket.on("hello-world", data => {
-        console.log(`A user has sent a number: ${data}`);
-        io.emit("hello-world", data);
+
+    socket.on("broadcast-room", data => {
+        socket.join(data);
+        io.to(data).emit("joined-room", data);
+        console.log(`A user has joined room ID: ${data}`);
+        console.log(io.sockets.adapter.rooms[roomID]); //can be used to check if room exists so someone can join
     });
 });
 
