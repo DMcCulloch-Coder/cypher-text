@@ -1,5 +1,4 @@
 const socket = io();
-let randomNumber = Math.random();
 
 //Generates 5 character string for room id
 function generateRoomID() {
