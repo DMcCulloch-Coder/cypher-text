@@ -26,9 +26,22 @@ router.get("/api/rooms/:id", (req, res) => {
             }
         ]
     }).then((result) => {//
-        console.log("====================\n\n\n api-connectin? \n\n\n===============");
+
+        let data = {
+            id: result[0].id,
+            Words: []
+        };
+        for(i = 0; i < result[0].Words.length; i++){
+            let index = {
+                word: result[0].Words[i].word,
+                group_type: result[0].Words[i].group_type,
+                id: result[0].Words[i].id
+            };
+            data.Words.push(index);
+        }
+
         // res.json(result[0]);
-        res.render("room", result[0]);
+        return res.render("room", data);
     });
 });
 
