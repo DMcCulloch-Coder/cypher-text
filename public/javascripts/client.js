@@ -7,6 +7,16 @@ $(document).ready(() => {
         console.log(res);
     });
 
+    $("#create-room-input").on("click", (event) => {
+        alert("working -create room");
+        console.log(event);
+    });
+
+    $("#join-room-input").on("click", (event) => {
+        alert("working - join room");
+        console.log(event);
+    });
+
 });
 
 // new or returning user
