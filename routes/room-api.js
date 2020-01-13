@@ -26,7 +26,7 @@ router.get("/api/rooms/:id", (req, res, next) => {
 			}
 		]
 	}).then(result => {
-		res.json(result);
+        
         let data = {
             id: result[0].id,
             Words: []
