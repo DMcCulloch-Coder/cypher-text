@@ -13,33 +13,41 @@ $(document).ready(() => {
     });
 
     $("#join-room-input").on("click", (event) => {
-        alert("working - join room");
-        console.log(event);
+        event.preventDefault();
+        const id = $("#room-input").val();
+        const url = `/api/rooms/${id}`;
+        console.log(id);
+
+        $.ajax({
+            url: url,
+            method: "GET"
+        }).then((res) => {
+            console.log(res);
+        });
+
     });
 
 });
-
-
 
 // new or returning user
 //"/api/players/:name?"
 
 // new or joining room
-//"api/rooms/:name?"
-$(document).ready(() => {
-    $("#join-room-input").on("click", () => {
-        event.preventDefault();
-        alert("JOIN");
-        // location.redirect("/api/rooms/1");
-        $.ajax({
-            url: "/api/rooms/1",
-            method: "GET"
-        }).then(() => {
-            // res.render("room", result);
-            alert("AJAX");
-        });
-    });
-});
+// //"api/rooms/:name?"
+// $(document).ready(() => {
+//     $("#join-room-input").on("click", () => {
+//         event.preventDefault();
+//         alert("JOIN");
+//         // location.redirect("/api/rooms/1");
+//         $.ajax({
+//             url: "/api/rooms/1",
+//             method: "GET"
+//         }).then(() => {
+//             // res.render("room", result);
+//             alert("AJAX");
+//         });
+//     });
+// });
 
 //place holder for ajax api requests
 //------ Inputs -----
