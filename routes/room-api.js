@@ -17,7 +17,7 @@ router.get("/api/rooms", (req, res, next) => {
 	});
 });
 
-router.get("/api/rooms/:id", (req, res, next) => {
+router.get("/api/rooms/:id", (req, res) => {
 	db.Rooms.findAll({
 		where: { id: req.params.id },
 		include: [
@@ -26,7 +26,7 @@ router.get("/api/rooms/:id", (req, res, next) => {
 			}
 		]
 	}).then(result => {
-        
+
         let data = {
             id: result[0].id,
             Words: []
