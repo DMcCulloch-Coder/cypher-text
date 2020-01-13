@@ -13,7 +13,6 @@ const roomRouter = require("./routes/word-api");
 const app = express();
 
 // view engine setup
-
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.set("views", path.join(__dirname, "/views"));
