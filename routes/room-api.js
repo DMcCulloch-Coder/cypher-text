@@ -25,7 +25,7 @@ router.get("/api/rooms/:id", (req, res) => {
                 model: db.Words
             }
         ]
-    }).then( (result) => {//
+    }).then((result) => {//
         console.log("====================\n\n\n api-connectin? \n\n\n===============");
         // res.json(result[0]);
         res.render("room", result[0]);

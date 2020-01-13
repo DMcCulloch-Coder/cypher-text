@@ -1,32 +1,53 @@
-const socket = io();
-let randomNUmber = Math.random();
-socket.emit("hello-world", randomNUmber);
-socket.on("hello-world", data => {
-    console.log(`User send the number: ${data}`);
+$(document).ready(() => {
+
+    $.ajax({
+        url: "/api/words",
+        method: "GET"
+    }).then((res) => {
+        console.log(res);
+    });
+
+    $("#create-room-input").on("click", (event) => {
+        alert("working -create room");
+        console.log(event);
+    });
+
+    $("#join-room-input").on("click", (event) => {
+        event.preventDefault();
+        const id = $("#room-input").val();
+        const url = `/api/rooms/${id}`;
+        console.log(id);
+
+        $.ajax({
+            url: url,
+            method: "GET"
+        }).then((res) => {
+            console.log(res);
+        });
+
+    });
+
 });
-alert("working");
-
-
 
 // new or returning user
 //"/api/players/:name?"
 
 // new or joining room
-//"api/rooms/:name?"
-$(document).ready(() => {
-    $("#join-room-input").on("click", () => {
-        event.preventDefault();
-        alert("JOIN");
-        // location.redirect("/api/rooms/1");
-        $.ajax({
-            url: "/api/rooms/1",
-            method: "GET"
-        }).then(() => {
-            // res.render("room", result);
-            alert("AJAX");
-        });
-    });
-});
+// //"api/rooms/:name?"
+// $(document).ready(() => {
+//     $("#join-room-input").on("click", () => {
+//         event.preventDefault();
+//         alert("JOIN");
+//         // location.redirect("/api/rooms/1");
+//         $.ajax({
+//             url: "/api/rooms/1",
+//             method: "GET"
+//         }).then(() => {
+//             // res.render("room", result);
+//             alert("AJAX");
+//         });
+//     });
+// });
 
 //place holder for ajax api requests
 //------ Inputs -----
