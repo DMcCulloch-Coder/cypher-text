@@ -83,7 +83,12 @@ io.on("connection", socket => {
 
     socket.on("broadcast-room", data => {
         socket.join(data);
-        io.to(data).emit("joined-room", data);
+        //Send message to all players except new player
+        let msg = `A new user has joined roomID: (${data})`;
+        socket.broadcast.to(data).emit("player-joined-room", msg);
+
+        //Send back roomID to player
+        socket.emit("joined-room", data);
         console.log(`A user has joined room ID: ${data}`);
         console.log(io.sockets.adapter.rooms[data]); //can be used to check if room exists so someone can join
     });

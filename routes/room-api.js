@@ -19,23 +19,22 @@ router.get("/api/rooms", (req, res) => {
 
 router.get("/api/rooms/:id", (req, res) => {
     db.Rooms.findAll({
-        where: { id: req.params.id },
+        where: { room_access_code: req.params.id },
         include: [
             {
                 model: db.Words
             }
         ]
     }).then(result => {
-
         let data = {
-            id: result[0].id,
+            room_access_code: result[0].room_access_code,
             Words: []
         };
         for (i = 0; i < result[0].Words.length; i++) {
             let index = {
                 word: result[0].Words[i].word,
                 group_type: result[0].Words[i].group_type,
-                id: result[0].Words[i].id
+                room_access_code: result[0].Words[i].room_access_code
             };
             data.Words.push(index);
         }

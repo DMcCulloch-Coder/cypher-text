@@ -1,42 +1,79 @@
 $(document).ready(() => {
+    const socket = io();
+
+    //Will be used to decide whether or not to forward to room or game pages
+    const previousRoom = localStorage.getItem("roomID");
+
+    //Generates 5 character string for room id
+    const generateRoomID = () => {
+        let chars = "ABCDEFGHIJKLMNOPQRSTUVWXTZ";
+        let string_length = 5;
+        let id = "";
+        for (let i = 0; i < string_length; i++) {
+            let num = Math.floor(Math.random() * chars.length);
+            id += chars.substring(num, num + 1);
+        }
+        return id;
+    };
+    //Sends message when new player joins
+    socket.on("player-joined-room", msg => {
+        console.log(msg);
+    });
+    //Sends message when joining a room
+    socket.on("joined-room", data => {
+        console.log(`You have joined room ID: ${data}`);
+    });
+
+    //Once client initially connects we allow it to create a room and send that back to the server to setup
 
     $.ajax({
         url: "/api/words",
         method: "GET"
-    }).then((res) => {
+    }).then(res => {
         console.log(res);
     });
 
-    $("#create-room-input").on("click", (event) => {
+    $("#create-room-input").on("click", event => {
         event.preventDefault();
-        const id = $("#room-input").val();
-        const url = `/api/rooms/${id}`;
-        console.log(id);
+        const url = "/api/rooms/";
+        //Generate RoomID for socket.io channel
+        const roomID = generateRoomID();
+        const roomName = $("#room-input").val();
+        const data = {
+            room_name: roomName,
+            room_access_code: roomID
+        };
+        //Create new room in SQL
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: data
+        }).then(res => {
+            socket.emit("broadcast-room", roomID);
+            localStorage.setItem("roomID", JSON.stringify(roomID));
+        });
+        $("#room-input").val("");
+    });
+
+    $("#join-room-input").on("click", event => {
+        event.preventDefault();
+        const roomID = $("#access-code-input").val();
+        const url = `/api/rooms/${roomID}`;
+        console.log(roomID);
 
         $.ajax({
             url: url,
             method: "GET"
-        }).then((res) => {
-            location.replace(`api/rooms/${id}`);
-        });
+        })
+            .then(res => {
+                socket.emit("broadcast-room", roomID);
+                localStorage.setItem("roomID", JSON.stringify(roomID));
+            })
+            .then(res => {
+                location.replace(`api/rooms/${id}`);
+                console.log(res);
+            });
     });
-
-    $("#join-room-input").on("click", (event) => {
-        event.preventDefault();
-        const id = $("#room-input").val();
-        const url = `/api/rooms/${id}`;
-        console.log(id);
-
-        $.ajax({
-            url: url,
-            method: "GET"
-        }).then((res) => {
-            location.replace(`api/rooms/${id}`);
-            console.log(res);
-        });
-
-    });
-
 });
 
 // new or returning user
