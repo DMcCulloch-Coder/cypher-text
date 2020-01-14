@@ -2,22 +2,7 @@ const express = require("express");
 const db = require("../models");
 const router = express.Router();
 
-/* Room API Routes */
-router.get("/api/rooms", (req, res) => {
-    console.log(1);
-    db.Rooms.findAll({
-        include: [
-            {
-                model: db.Words
-            }
-        ]
-    }).then(result => {
-        // res.json(result);
-        res.render("index", result);
-    });
-});
-
-router.get("/api/rooms/:id", (req, res) => {
+router.get("/rooms/:id", (req, res) => {
     db.Rooms.findAll({
         where: { room_access_code: req.params.id },
         include: [
@@ -41,6 +26,34 @@ router.get("/api/rooms/:id", (req, res) => {
 
         // res.json(result[0]);
         return res.render("room", data);
+    });
+});
+
+/* Room API Routes */
+router.get("/api/rooms", (req, res) => {
+    console.log(1);
+    db.Rooms.findAll({
+        include: [
+            {
+                model: db.Words
+            }
+        ]
+    }).then(result => {
+        res.render("index", result);
+    });
+});
+
+router.get("/api/rooms/:id", (req, res) => {
+    db.Rooms.findAll({
+        where: { room_access_code: req.params.id },
+        include: [
+            {
+                model: db.Words
+            }
+        ]
+    }).then(result => {
+        // res.json(result[0]);
+        return res.json(result);
     });
 });
 
