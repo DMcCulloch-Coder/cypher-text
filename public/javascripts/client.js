@@ -64,10 +64,15 @@ $(document).ready(() => {
         $.ajax({
             url: url,
             method: "GET"
-        }).then(res => {
-            socket.emit("broadcast-room", roomID);
-            localStorage.setItem("roomID", JSON.stringify(roomID));
-        });
+        })
+            .then(res => {
+                socket.emit("broadcast-room", roomID);
+                localStorage.setItem("roomID", JSON.stringify(roomID));
+            })
+            .then(res => {
+                location.replace(`api/rooms/${id}`);
+                console.log(res);
+            });
     });
 });
 
