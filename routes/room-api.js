@@ -12,8 +12,8 @@ router.get("/api/rooms", (req, res) => {
             }
         ]
     }).then(result => {
-        res.json(result);
-        // res.render("index", result);
+        // res.json(result);
+        res.render("index", result);
     });
 });
 

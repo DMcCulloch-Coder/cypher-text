@@ -1,8 +1,66 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 a {
   color: #00B7FF;
 }
+
+.card {
+    height: 13rem;
+    width: 15rem;
+    padding-top: 3rem;
+    text-align: center;
+    position: relative;
+    -mox-prespective: 150rem;
+    perspective: 150rem;
+    margin: 2rem auto;
+
+}
+
+.grid {
+    width: 20%;
+    float: left;
+    
+};
+
+.card__side {
+    height: 13rem;
+    padding-top: 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 1rem 2rem rgba(0,0,0, .3);
+    backface-visibility: hidden;
+    transition: all .8s ease;
+
+};
+
+.card__side--back {
+    transform: rotateY(180deg);
+    background-color: blue;
+
+};
+
+.card:hover .card__side--front {
+    transform: rotateY(180deg);
+
+};
+
+.card:hover .card__side--back {
+    transform: rotateY(0);
+};
