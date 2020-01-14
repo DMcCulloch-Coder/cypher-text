@@ -8,8 +8,17 @@ $(document).ready(() => {
     });
 
     $("#create-room-input").on("click", (event) => {
-        alert("working -create room");
-        console.log(event);
+        event.preventDefault();
+        const id = $("#room-input").val();
+        const url = `/api/rooms/${id}`;
+        console.log(id);
+
+        $.ajax({
+            url: url,
+            method: "GET"
+        }).then((res) => {
+            console.log(res);
+        });
     });
 
     $("#join-room-input").on("click", (event) => {
