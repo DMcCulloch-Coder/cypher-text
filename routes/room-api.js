@@ -13,14 +13,23 @@ router.get("/rooms/:id", (req, res) => {
     }).then(result => {
         let data = {
             room_access_code: result[0].room_access_code,
+            scores: [0, 0],
             Words: []
         };
         for (i = 0; i < result[0].Words.length; i++) {
             let index = {
                 word: result[0].Words[i].word,
                 group_type: result[0].Words[i].group_type,
+                visible: result[0].Words[i].visible,
                 room_access_code: result[0].Words[i].room_access_code
             };
+
+            if (!result[0].Words[i].visible && result[0].Words[i].group_type === 1) {
+                data.scores[0]++;
+            } else if (!result[0].Words[i].visible&& result[0].Words[i].group_type === 2) {
+                data.scores[1] = data.scores[1] + 1;
+            }
+
             data.Words.push(index);
         }
 
