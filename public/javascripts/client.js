@@ -51,6 +51,7 @@ $(document).ready(() => {
         }).then(res => {
             socket.emit("broadcast-room", roomID);
             localStorage.setItem("roomID", JSON.stringify(roomID));
+            location.replace(`api/rooms/${roomID}`);
         });
         $("#room-input").val("");
     });
@@ -68,10 +69,7 @@ $(document).ready(() => {
             .then(res => {
                 socket.emit("broadcast-room", roomID);
                 localStorage.setItem("roomID", JSON.stringify(roomID));
-            })
-            .then(res => {
-                location.replace(`api/rooms/${id}`);
-                console.log(res);
+                location.replace(`api/rooms/${roomID}`);
             });
     });
 });
