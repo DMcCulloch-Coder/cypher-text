@@ -22,6 +22,7 @@ $(document).ready(() => {
             url: url,
             method: "GET"
         }).then((res) => {
+            location.replace(`api/rooms/${id}`);
             console.log(res);
         });
 
