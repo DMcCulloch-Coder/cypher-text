@@ -25,8 +25,7 @@ router.get("/api/rooms/:id", (req, res) => {
                 model: db.Words
             }
         ]
-    }).then((result) => {
-        console.log(`Result: ${result[0]}`);
+    }).then(result => {
 
         let data = {
             id: result[0].id,
