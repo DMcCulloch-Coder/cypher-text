@@ -3,6 +3,11 @@ module.exports = (sequelize, DataTypes) => {
     const Room = sequelize.define("Rooms", {
         room_name: {
             type: DataTypes.STRING,
+            unique: false,
+            allowNull: false
+        },
+        room_access_code: {
+            type: DataTypes.STRING,
             unique: true,
             allowNull: false
         },
