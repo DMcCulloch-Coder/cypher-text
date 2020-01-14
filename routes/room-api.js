@@ -2,6 +2,33 @@ const express = require("express");
 const db = require("../models");
 const router = express.Router();
 
+router.get("/rooms/:id", (req, res) => {
+    db.Rooms.findAll({
+        where: { room_access_code: req.params.id },
+        include: [
+            {
+                model: db.Words
+            }
+        ]
+    }).then(result => {
+        let data = {
+            room_access_code: result[0].room_access_code,
+            Words: []
+        };
+        for (i = 0; i < result[0].Words.length; i++) {
+            let index = {
+                word: result[0].Words[i].word,
+                group_type: result[0].Words[i].group_type,
+                room_access_code: result[0].Words[i].room_access_code
+            };
+            data.Words.push(index);
+        }
+
+        // res.json(result[0]);
+        return res.render("room", data);
+    });
+});
+
 /* Room API Routes */
 router.get("/api/rooms", (req, res) => {
     console.log(1);
@@ -12,7 +39,6 @@ router.get("/api/rooms", (req, res) => {
             }
         ]
     }).then(result => {
-        // res.json(result);
         res.render("index", result);
     });
 });
@@ -49,7 +75,7 @@ router.get("/api/rooms/:id", (req, res) => {
         }
 
         // res.json(result[0]);
-        return res.render("room", data);
+        return res.json(result);
     });
 });
 
