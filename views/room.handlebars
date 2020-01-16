@@ -1,4 +1,8 @@
-<p>team choice</p><span>{{> teamchoices }}</span>
-<p>board?</p><span>{{> masterboard }}</span>
-<p>scores</p><span>{{> scores }}</span>
-<p>clue?</p><span>{{> submitclue }}</span>
+<span>{{> scores }}</span>
+{{#if player_type }}
+<span>{{> submitclue }}</span>
+<span>{{> masterboard }}</span>
+{{else}}
+<div><label for="clue">Current Clue:</label>  {{ clue }}</div>
+<span>{{> agentboard }}</span>
+{{/if}}

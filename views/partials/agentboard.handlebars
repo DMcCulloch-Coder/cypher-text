@@ -1,10 +1,12 @@
-{{#each words}}
-    <div data-id="{{id}}" name="card-{{id}}" data-group="{{group_type}}" class="card card-agent">
-        <div class="card__side card__side--front  card__side--front-{{id}} "> {{!-- visible-{{visible}}// view css to be handled server side later --}}
-            {{word}}
-        </div>
-        <div class="card__side card__side--back  card__side--back-{{id}}">
-            {{word}}
+{{#each Words}}
+    <div data-id="{{id}}" name="card-{{id}}" data-group="{{group_type}}" class="grid card-agent">
+        <div class="card">
+            <div class="card__side card__side--front  card__side--front-{{id}} "> {{!-- visible-{{visible}}// view css to be handled server side later --}}
+                {{word}}
+            </div>
+            <div class="card__side card__side--back  card__side--back-{{id}}">
+                {{word}}
+            </div>
         </div>
     </div>
 {{/each}} 
