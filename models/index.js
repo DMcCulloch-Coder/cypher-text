@@ -43,8 +43,8 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 //db associations
-db.Rooms.hasMany(db.Words);
-db.Words.belongsTo(db.Rooms);
+db.Rooms.hasMany(db.Words, { foreignKey: "room_id" });
+db.Words.belongsTo(db.Rooms, { foreignKey: "room_id" });
 
 db.Rooms.hasMany(db.Players);
 db.Players.belongsTo(db.Rooms);

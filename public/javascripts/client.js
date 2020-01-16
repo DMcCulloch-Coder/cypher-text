@@ -16,6 +16,37 @@ $(document).ready(() => {
         return id;
     };
 
+    const generateWordList = roomID => {
+        const roomURL = `/api/rooms/${roomID}`;
+        //Get room from DB so we can grab id to reset room
+        $.ajax({
+            url: roomURL,
+            method: "GET"
+        }).then(res => {
+            const wordURL = `/api/rooms/words/${res[0].id}`;
+            let id = res[0].id;
+            //Delete all WORDs in the DB and Add in 25 more
+            $.ajax({
+                url: wordURL,
+                method: "DELETE"
+            }).then(res => {
+                console.log(`Deleted ${res} words for roomID ${roomID}`);
+                const newWordURL = "/api/words/";
+                //Get room from DB so we can grab id to reset room
+                console.log(id);
+                $.ajax({
+                    url: newWordURL,
+                    method: "POST",
+                    data: {
+                        id: id
+                    }
+                }).then(res => {
+                    res;
+                });
+            });
+        });
+    };
+
     //Sends message when new player joins
     socket.on("player-joined-room", msg => {
         console.log(msg);
@@ -53,7 +84,10 @@ $(document).ready(() => {
         }).then(res => {
             socket.emit("broadcast-room", roomID);
             localStorage.setItem("roomID", JSON.stringify(roomID));
-            location.replace(`/rooms/${roomID}`);
+            generateWordList(roomID);
+            setTimeout(() => {
+                location.replace(`/rooms/${roomID}`);
+            }, 3000);
         });
         $("#room-input").val("");
     });
@@ -67,12 +101,11 @@ $(document).ready(() => {
         $.ajax({
             url: url,
             method: "GET"
-        })
-            .then(res => {
-                socket.emit("broadcast-room", roomID);
-                localStorage.setItem("roomID", JSON.stringify(roomID));
-                location.replace(`/rooms/${roomID}`);
-            });
+        }).then(res => {
+            socket.emit("broadcast-room", roomID);
+            localStorage.setItem("roomID", JSON.stringify(roomID));
+            location.replace(`/rooms/${roomID}`);
+        });
     });
 });
 
