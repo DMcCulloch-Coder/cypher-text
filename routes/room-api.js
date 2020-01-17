@@ -14,6 +14,7 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
         let data = {
             player_type: 0, //0/false = agent vs 1/true = keymaster
             clue: "testClueDisplay",
+            room_name: result[0].room_name,
             room_access_code: result[0].room_access_code,
             scores: [0, 0],
             Words: []
