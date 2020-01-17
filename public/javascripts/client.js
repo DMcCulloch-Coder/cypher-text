@@ -71,7 +71,7 @@ $(document).ready(() => {
         const url = "api/rooms";
         //Generate RoomID for socket.io channel
         const roomID = generateRoomID();
-        const roomName = $("#room-input").val();
+        const roomName = $("#room-input").val() || "The Most Awesome Room";
         const data = {
             room_name: roomName,
             room_access_code: roomID
