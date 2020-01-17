@@ -2,7 +2,7 @@ const express = require("express");
 const db = require("../models");
 const router = express.Router();
 
-router.get("/rooms/:id", (req, res) => {
+router.get("/rooms/:id/:player_type?", (req, res) => {
     db.Rooms.findAll({
         where: { room_access_code: req.params.id },
         include: [
@@ -12,14 +12,21 @@ router.get("/rooms/:id", (req, res) => {
         ]
     }).then(result => {
         let data = {
-            player_type: 0, //0 = agent vs 1 = keymaster
+            player_type: 0, //0/false = agent vs 1/true = keymaster
             clue: "testClueDisplay",
             room_access_code: result[0].room_access_code,
             scores: [0, 0],
             Words: []
         };
+        if (req.params.player_type === "1") {
+            data.player_type = 1;
+        } else {
+            data.player_type = 0;
+        }
+
         for (i = 0; i < result[0].Words.length; i++) {
             let index = {
+                id: i,
                 word: result[0].Words[i].word,
                 group_type: result[0].Words[i].group_type,
                 visible: result[0].Words[i].visible,
@@ -35,7 +42,7 @@ router.get("/rooms/:id", (req, res) => {
             data.Words.push(index);
         }
 
-        // res.json(result[0]);
+        // res.json(data);
         return res.render("room", data);
     });
 });
