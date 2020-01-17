@@ -18,11 +18,7 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
             scores: [0, 0],
             Words: []
         };
-        if (req.params.player_type === "1") {
-            data.player_type = 1;
-        } else {
-            data.player_type = 0;
-        }
+        req.params.player_type === "1" ? data.player_type = 1 : data.player_type = 0;
 
         for (i = 0; i < result[0].Words.length; i++) {
             let index = {
