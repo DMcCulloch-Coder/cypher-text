@@ -71,14 +71,31 @@ a {
 
 .word__side--back {
     transform: rotateY(180deg);
-    background-color: blue;
-
 }
 
 .word:hover .word__side--front {
-    transform: rotateY(180deg);
+    border: .2rem white solid;
+    box-shadow: none;
+    transform: scale(1.25);
+    cursor: pointer;
 }
 
-.word:hover .word__side--back {
+/* .word:hover .word__side--back {
     transform: rotateY(0);
-};
+} */
+
+.agent-1 {
+    background-color: blue;
+}
+
+.agent-2 {
+    background-color: red;
+}
+
+.agent-3 {
+    background-color: tan;
+}
+
+.agent-4 {
+    background-color: black;
+}

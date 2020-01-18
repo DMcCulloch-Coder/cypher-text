@@ -11,6 +11,7 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
             }
         ]
     }).then(result => {
+        console.log(result);
         let data = {
             player_type: 0, //0/false = agent vs 1/true = keymaster
             current_clue: "",
@@ -20,7 +21,9 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
             Words: [],
             clues: ["testClueDisplay"]
         };
-        req.params.player_type === "1" ? data.player_type = 1 : data.player_type = 0;
+        req.params.player_type === "1"
+            ? (data.player_type = 1)
+            : (data.player_type = 0);
 
         let x = (data.clues.length - 1);
         data.current_clue = data.clues[x];
@@ -34,9 +37,15 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
                 room_access_code: result[0].Words[i].room_access_code
             };
 
-            if (!result[0].Words[i].visible && result[0].Words[i].group_type === 1) {
+            if (
+                !result[0].Words[i].visible &&
+                result[0].Words[i].group_type === 1
+            ) {
                 data.scores[0]++;
-            } else if (!result[0].Words[i].visible&& result[0].Words[i].group_type === 2) {
+            } else if (
+                !result[0].Words[i].visible &&
+                result[0].Words[i].group_type === 2
+            ) {
                 data.scores[1] = data.scores[1] + 1;
             }
             
@@ -54,7 +63,6 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
 
 /* Room API Routes */
 router.get("/api/rooms", (req, res) => {
-    console.log(1);
     db.Rooms.findAll({
         include: [
             {
@@ -88,9 +96,15 @@ router.get("/api/rooms/:id", (req, res) => {
                 room_access_code: result[0].Words[i].room_access_code
             };
 
-            if (!result[0].Words[i].visible && result[0].Words[i].group_type === 1) {
+            if (
+                !result[0].Words[i].visible &&
+                result[0].Words[i].group_type === 1
+            ) {
                 data.scores[0]++;
-            } else if (!result[0].Words[i].visible&& result[0].Words[i].group_type === 2) {
+            } else if (
+                !result[0].Words[i].visible &&
+                result[0].Words[i].group_type === 2
+            ) {
                 data.scores[1] = data.scores[1] + 1;
             }
 

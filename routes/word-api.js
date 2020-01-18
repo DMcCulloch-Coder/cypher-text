@@ -64,7 +64,8 @@ router.post("/api/words", (req, res) => {
         });
     }
     //bulk create the new words
-    db.Words.bulkCreate(wordArray).then(result => {
+    const randomOrder = wordArray.sort(() => 0.5 - Math.random());
+    db.Words.bulkCreate(randomOrder).then(result => {
         res.json(result);
         // res.render("index", result);
     });
