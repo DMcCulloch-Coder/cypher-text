@@ -1,4 +1,5 @@
-var c = document.getElementById("c");
+let c = document.getElementById("c");
+let transitionColor = 0;
 if (c) {
     var ctx = c.getContext("2d");
 
@@ -20,14 +21,21 @@ if (c) {
     //1 = y co-ordinate of the drop(same for every drop initially)
     for (var x = 0; x < columns; x++) drops[x] = 1;
 
+    $("#create-room-input").on("click", event => {
+        transitionColor = 1;
+    });
+
     //drawing the characters
     function draw() {
         //Black BG for the canvas
         //translucent BG to show trail
         ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
         ctx.fillRect(0, 0, c.width, c.height);
-
-        ctx.fillStyle = "#fd802c"; //orange text
+        if (transitionColor === 1) {
+            ctx.fillStyle = "#ffff00 "; //yellow text
+        } else {
+            ctx.fillStyle = "#fd802c"; //orange text
+        }
         ctx.font = font_size + "px arial";
         //looping over drops
         for (var i = 0; i < drops.length; i++) {
