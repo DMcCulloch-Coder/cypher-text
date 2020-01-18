@@ -101,8 +101,12 @@ $(document).ready(() => {
             setTimeout(() => {
                 location.replace(`/rooms/${roomID}`);
             }, 3000);
+
+            $("#error-notice").addClass("collapse");
+            $("#logo-div").addClass("collapse");
+            $("#form-div").addClass("collapse");
+            $("#creating-room").toggle();
         });
-        $("#room-input").val("");
     });
 
     $("#join-room-input").on("click", event => {
