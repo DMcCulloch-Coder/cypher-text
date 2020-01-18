@@ -56,7 +56,7 @@ $(document).ready(() => {
     if (previousRoom === currentRoom) {
         reJoinRoom(previousRoom);
     } else if (currentRoom) {
-        //handles case for testing where mutiple tabs may be open to differnt rooms
+        //handles case for testing where multiple tabs may be open to different rooms
         reJoinRoom(currentRoom);
     }
 
