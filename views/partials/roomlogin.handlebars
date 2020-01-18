@@ -1,7 +1,43 @@
-<div class="room-input">
-    <label for="room-input">Room: </label><br>
-    <input type="text" name="room-name" id="room-input">
-    <button id="create-room-input">Create</button> <br>
-    <input type="text" name="access-code-name" id="access-code-input">
-    <button id="join-room-input">Join</button>
+<div style="position: relative;">
+    <canvas style="position: absolute; z-index: 1; left: 0; top: 0;"
+        id="c"></canvas>
+    <div style="position: relative; z-index: 2;"
+        class="container h-100 room-input">
+        <div class="row align-items-center h-100">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 border rounded" id="login-background">
+                <div class="alert alert-primary my-2 collapse" id="error-notice"
+                    role="alert">
+                    <span id="error-message"></span>
+                </div>
+                <div class="text-center my-3"><img id="logo"
+                        src="./images/logo.png" alt="cypher-text-logo"></div>
+                <form class="login">
+                    <div class="form-group">
+                        <label class="text-warning" for="room-input">Room
+                            Name:</label>
+                        <input type="text" name="room-name" id="room-input"
+                            class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-info"
+                        id="create-room-input"><i
+                            class="far fa-plus-square"></i>
+                        Create New Room</button>
+                    <div class="form-group mt-2">
+                        <label class="text-warning"
+                            for="access-code-input">Enter
+                            Room Access
+                            Code:</label>
+                        <input type="text" name="access-code-name"
+                            id="access-code-input" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-info"
+                        id="join-room-input"><i class="fas fa-sign-in-alt"></i>
+                        Join Existing Room</button>
+                </form>
+                <br />
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
 </div>
