@@ -32,7 +32,7 @@ if (c) {
         ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
         ctx.fillRect(0, 0, c.width, c.height);
         if (transitionColor === 1) {
-            ctx.fillStyle = "#ffff00 "; //yellow text
+            ctx.fillStyle = "#fff "; //yellow text
         } else {
             ctx.fillStyle = "#fd802c"; //orange text
         }
