@@ -113,7 +113,21 @@ $(document).ready(() => {
 
         $.ajax({
             url: url,
-            method: "GET"
+            method: "GET",
+            error: function(xhr, status, error) {
+                let message;
+                if (roomID) {
+                    message = `Unable to join roomID: ${roomID}`;
+                } else {
+                    message = "You must enter a valid roomID";
+                }
+                $("#error-message").text(message);
+                $("#error-notice").toggle();
+                setTimeout(() => {
+                    $("#error-notice").toggle();
+                    $("#error-message").text("");
+                }, 3000);
+            }
         }).then(res => {
             socket.emit("broadcast-room", roomID);
             localStorage.setItem("roomID", JSON.stringify(roomID));
