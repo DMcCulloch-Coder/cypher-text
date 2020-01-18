@@ -143,7 +143,7 @@ $(document).ready(() => {
 //     console.log(`\n\n============================\n\n${JSON.stringify(newClue)}\n\n=======================\n\n`);
 
 //     // send clue with socket.io
-//     // update urrent clue / push into clues array?
+//     // update current clue / push into clues array?
 // })
 
 // submit guess
