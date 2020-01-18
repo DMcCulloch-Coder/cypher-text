@@ -36,7 +36,12 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
                 data.scores[1] = data.scores[1] + 1;
             }
 
+
             data.Words.push(index);
+        }
+
+        if (data.scores.includes(0)){
+            res.render("gameover");
         }
 
         // res.json(data);
