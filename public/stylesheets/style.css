@@ -34,7 +34,8 @@ a {
 }
 
 .word {
-    width: 15rem;
+    height: 7rem;
+    width: 80%;
     padding-top: 3rem;
     text-align: center;
     position: relative;
@@ -59,6 +60,7 @@ a {
     box-shadow: 0 1rem 2rem rgba(194, 95, 29, .5);
     backface-visibility: hidden;
     transition: all 0.8s ease;
+    line-height: 1rem;
 }
 
 .word__side--front {
