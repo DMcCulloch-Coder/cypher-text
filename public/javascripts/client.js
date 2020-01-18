@@ -2,7 +2,12 @@ $(document).ready(() => {
     const socket = io();
 
     //Will be used to decide whether or not to forward to room or game pages
-    const previousRoom = localStorage.getItem("roomID");
+    const previousRoom = JSON.parse(localStorage.getItem("roomID"));
+    const currentRoom = window.location.pathname.split("/rooms/", 2)[1];
+
+    const reJoinRoom = roomID => {
+        socket.emit("broadcast-room", roomID);
+    };
 
     //Generates 5 character string for room id
     const generateRoomID = () => {
@@ -46,6 +51,14 @@ $(document).ready(() => {
             });
         });
     };
+
+    //Sends out broadcast to rejoin room to handle page redirection
+    if (previousRoom === currentRoom) {
+        reJoinRoom(previousRoom);
+    } else if (currentRoom) {
+        //handles case for testing where mutiple tabs may be open to differnt rooms
+        reJoinRoom(currentRoom);
+    }
 
     //Sends message when new player joins
     socket.on("player-joined-room", msg => {
