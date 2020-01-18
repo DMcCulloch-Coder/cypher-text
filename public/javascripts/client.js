@@ -9,6 +9,24 @@ $(document).ready(() => {
         socket.emit("broadcast-room", roomID);
     };
 
+    const updateWord = id => {
+        const wordURL = `/api/words/${id}`;
+        const obj = {
+            visible: 1
+        };
+        $.ajax({
+            url: wordURL,
+            method: "PUT",
+            data: obj
+        }).then(res => {
+            let data = {
+                roomID: currentRoom,
+                wordID: id
+            };
+            socket.emit("word-update", data);
+        });
+    };
+
     //Generates 5 character string for room id
     const generateRoomID = () => {
         let chars = "ABCDEFGHIJKLMNOPQRSTUVWXTZ";
@@ -68,6 +86,12 @@ $(document).ready(() => {
     //Sends message when joining a room
     socket.on("joined-room", data => {
         console.log(`You have joined room ID: ${data}`);
+    });
+
+    //Sends message when joining a room
+    socket.on("word-update", data => {
+        console.log(`wordID: ${data} has been updated to visible`);
+        //NEED TO ADD IN FUCNTIONS FOR MODIFYING WHAT IS SHOWN ON THE GAME BOARD
     });
 
     //Once client initially connects we allow it to create a room and send that back to the server to setup
@@ -138,6 +162,7 @@ $(document).ready(() => {
             location.replace(`/rooms/${roomID}`);
         });
     });
+    updateWord(547);
 });
 
 // new or returning user // user input?
