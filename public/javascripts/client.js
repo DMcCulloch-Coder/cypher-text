@@ -133,17 +133,29 @@ $(document).ready(() => {
 
 // submit clue
 //"api/rooms/:id/pastclues/:team"
+// $("#submit-clue").on("click", () => {
+//     let newClue = {
+//         word: $("#clue-text").val(),
+//         number: $("#clue-number").val()
+//         // team: body.group_type // ?
+//     };
+
+//     console.log(`\n\n============================\n\n${JSON.stringify(newClue)}\n\n=======================\n\n`);
+
+//     // send clue with socket.io
+//     // update urrent clue / push into clues array?
+// })
 
 // submit guess
-//api/rooms/:id/words/:id
+// api/rooms/:id/words/:id
 
 // (^if) room does not exist reroute to create room
 
 // teams' players for lists
-//"api/rooms/:id/players"
+// "api/rooms/:id/players"
 
 // past clues
-//"api/rooms/:id/pastclues"
+// "api/rooms/:id/pastclues"
 
 // player_type
 // api/rooms/:id/players /?/
