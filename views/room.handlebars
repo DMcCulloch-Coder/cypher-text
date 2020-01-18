@@ -1,9 +1,10 @@
-{{room_name}} {{> nav }}
+<h1 id="room-name">{{room_name}}</h1> 
+<div id="nav">{{> nav }}</div>
 <span>{{> scores }}</span>
 {{#if player_type }}
-<span>{{> submitclue }}</span>
-<span>{{> masterboard }}</span>
+    <span>{{> submitclue }}</span>
+    <span>{{> masterboard }}</span>
 {{else}}
-<div><label for="clue">Current Clue:</label>  {{ clue }}</div>
-<span>{{> agentboard }}</span>
+    <div><label for="clue">Current Clue:</label>  {{ clue }}</div>
+    <span>{{> agentboard }}</span>
 {{/if}}
