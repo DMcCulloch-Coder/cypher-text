@@ -24,7 +24,7 @@ $(document).ready(() => {
     const generateWordList = roomID => {
         const roomURL = `/api/rooms/${roomID}`;
         //Get room from DB so we can grab id to reset room
-        $.ajax({
+        return $.ajax({
             url: roomURL,
             method: "GET"
         }).then(res => {

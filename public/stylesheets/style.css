@@ -33,8 +33,7 @@ a {
     color: #00b7ff;
 }
 
-.card {
-    height: 13rem;
+.word {
     width: 15rem;
     padding-top: 3rem;
     text-align: center;
@@ -49,26 +48,35 @@ a {
     float: left;
 }
 
-.card__side {
-    height: 13rem;
+.word__side {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
     padding-top: 3rem;
     position: absolute;
     top: 0;
     left: 0;
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1rem 2rem rgba(194, 95, 29, .5);
     backface-visibility: hidden;
     transition: all 0.8s ease;
 }
 
-.card__side--back {
+.word__side--front {
+    background-color: rgba(255, 255, 255, 0.233);
+    color: white;
+
+}
+
+.word__side--back {
     transform: rotateY(180deg);
     background-color: blue;
+
 }
 
-/* .card:hover .card__side--front {
+.word:hover .word__side--front {
     transform: rotateY(180deg);
 }
 
-.card:hover .card__side--back {
+.word:hover .word__side--back {
     transform: rotateY(0);
-}; */
+};
