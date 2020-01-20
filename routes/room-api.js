@@ -30,7 +30,7 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
 
         for (i = 0; i < result[0].Words.length; i++) {
             let index = {
-                id: i,
+                id: result[0].Words[i].id,
                 word: result[0].Words[i].word,
                 group_type: result[0].Words[i].group_type,
                 visible: result[0].Words[i].visible,
@@ -89,6 +89,7 @@ router.get("/api/rooms/:id", (req, res) => {
         };
         for (i = 0; i < result[0].Words.length; i++) {
             let index = {
+                id: result[0].Words[i].id,
                 word: result[0].Words[i].word,
                 group_type: result[0].Words[i].group_type,
                 visible: result[0].Words[i].visible,
