@@ -18,7 +18,7 @@ $(document).ready(() => {
             url: wordURL,
             method: "PUT",
             data: obj
-        }).then(res => {
+        }).then(() => {
             let data = {
                 roomID: currentRoom,
                 wordID: id
@@ -118,7 +118,7 @@ $(document).ready(() => {
             url: url,
             method: "POST",
             data: data
-        }).then(res => {
+        }).then(() => {
             socket.emit("broadcast-room", roomID);
             localStorage.setItem("roomID", JSON.stringify(roomID));
             generateWordList(roomID);
@@ -142,7 +142,7 @@ $(document).ready(() => {
         $.ajax({
             url: url,
             method: "GET",
-            error: function (xhr, status, error) {
+            error: function () {//xhr, status, error
                 let message;
                 if (roomID) {
                     message = `Unable to join roomID: ${roomID}`;
@@ -156,7 +156,7 @@ $(document).ready(() => {
                     $("#error-message").text("");
                 }, 3000);
             }
-        }).then(res => {
+        }).then(() => {
             socket.emit("broadcast-room", roomID);
             localStorage.setItem("roomID", JSON.stringify(roomID));
             location.replace(`/rooms/${roomID}`);
