@@ -162,13 +162,13 @@ $(document).ready(() => {
             location.replace(`/rooms/${roomID}`);
         });
     });
-//     $(document).on("click", ".word-master", function () {
-//         const id = $(this).data("id");
+    // $(document).on("click", ".word-master", function () {
+    //     const id = $(this).data("id");
 
-//         // For Steve - insert model
-//         // Mode update the is selected true on socket IO
-//         console.log(id);
-//     });
+    //     // For Steve - insert model
+    //     // Mode update the is selected true on socket IO
+    //     console.log(id);
+    // });
 
     updateWord(547);
 });
