@@ -1,11 +1,10 @@
 {{#each Words}}
-<div data-id="{{id}}" id="word-{{id}}" data-group="{{group_type}}" class="grid word-master">
+<div data-id="{{id}}" id="word-{{id}}" data-group="{{group_type}}" class="grid word-master selected-{{visible}}">
     <div class="word">
-        <div class="agent-{{group_type}} word__side word__side--front  word__side--front-{{id}} not-selected">
-            {{!-- visible-{{visible}}// view css to be handled server side later --}}
+        <div class="agent-{{group_type}} word__side word__side--front  word__side--front-{{id}}">
             {{word}}
         </div>
-        <div class="agent-back-{{group_type}} word__side word__side--back  word__side--back-{{id}} selected">
+        <div class="agent-back-{{group_type}} word__side word__side--back  word__side--back-{{id}}">
             {{word}}
         </div>
     </div>
