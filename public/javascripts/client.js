@@ -3,7 +3,10 @@ $(document).ready(() => {
 
     //Will be used to decide whether or not to forward to room or game pages
     const previousRoom = JSON.parse(localStorage.getItem("roomID"));
-    const currentRoom = window.location.pathname.split("/rooms/", 2)[1];
+    let currentRoom = window.location.pathname.split("/rooms/", 2)[1];
+    if (currentRoom) {
+        currentRoom = currentRoom.split("/", 1)[0];
+    }
 
     const reJoinRoom = roomID => {
         socket.emit("broadcast-room", roomID);
@@ -142,7 +145,8 @@ $(document).ready(() => {
         $.ajax({
             url: url,
             method: "GET",
-            error: function () {//xhr, status, error
+            error: function() {
+                //xhr, status, error
                 let message;
                 if (roomID) {
                     message = `Unable to join roomID: ${roomID}`;
