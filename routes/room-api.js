@@ -14,15 +14,19 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
         console.log(result);
         let data = {
             player_type: 0, //0/false = agent vs 1/true = keymaster
-            clue: "testClueDisplay",
+            current_clue: "",
             room_name: result[0].room_name,
             room_access_code: result[0].room_access_code,
             scores: [0, 0],
-            Words: []
+            Words: [],
+            clues: ["testClueDisplay"]
         };
         req.params.player_type === "1"
             ? (data.player_type = 1)
             : (data.player_type = 0);
+
+        let x = (data.clues.length - 1);
+        data.current_clue = data.clues[x];
 
         for (i = 0; i < result[0].Words.length; i++) {
             let index = {
@@ -44,7 +48,7 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
             ) {
                 data.scores[1] = data.scores[1] + 1;
             }
-            
+
             data.Words.push(index);
         }
 
@@ -52,8 +56,7 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
             res.render("gameover");
         }
 
-        // res.json(data);
-        return res.render("room", data);
+        res.render("room", data);
     });
 });
 
