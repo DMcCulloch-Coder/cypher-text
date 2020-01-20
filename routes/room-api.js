@@ -48,7 +48,7 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
             ) {
                 data.scores[1] = data.scores[1] + 1;
             }
-            
+
             data.Words.push(index);
         }
 
@@ -56,8 +56,7 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
             res.render("gameover");
         }
 
-        // res.json(data);
-        return res.render("room", data);
+        res.render("room", data);
     });
 });
 
