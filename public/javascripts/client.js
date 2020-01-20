@@ -9,6 +9,24 @@ $(document).ready(() => {
         socket.emit("broadcast-room", roomID);
     };
 
+    const updateWord = id => {
+        const wordURL = `/api/words/${id}`;
+        const obj = {
+            visible: 1
+        };
+        $.ajax({
+            url: wordURL,
+            method: "PUT",
+            data: obj
+        }).then(res => {
+            let data = {
+                roomID: currentRoom,
+                wordID: id
+            };
+            socket.emit("word-update", data);
+        });
+    };
+
     //Generates 5 character string for room id
     const generateRoomID = () => {
         let chars = "ABCDEFGHIJKLMNOPQRSTUVWXTZ";
@@ -70,6 +88,12 @@ $(document).ready(() => {
         console.log(`You have joined room ID: ${data}`);
     });
 
+    //Sends message when joining a room
+    socket.on("word-update", data => {
+        console.log(`wordID: ${data} has been updated to visible`);
+        //NEED TO ADD IN FUCNTIONS FOR MODIFYING WHAT IS SHOWN ON THE GAME BOARD
+    });
+
     //Once client initially connects we allow it to create a room and send that back to the server to setup
 
     $.ajax({
@@ -101,8 +125,12 @@ $(document).ready(() => {
             setTimeout(() => {
                 location.replace(`/rooms/${roomID}`);
             }, 3000);
+
+            $("#error-notice").addClass("collapse");
+            $("#logo-div").addClass("collapse");
+            $("#form-div").addClass("collapse");
+            $("#creating-room").toggle();
         });
-        $("#room-input").val("");
     });
 
     $("#join-room-input").on("click", event => {
@@ -134,15 +162,15 @@ $(document).ready(() => {
             location.replace(`/rooms/${roomID}`);
         });
     });
+//     $(document).on("click", ".word-master", function () {
+//         const id = $(this).data("id");
 
-    $(document).on("click", ".word-master", function () {
-        const id = $(this).data("id");
+//         // For Steve - insert model
+//         // Mode update the is selected true on socket IO
+//         console.log(id);
+//     });
 
-        // For Steve - insert model
-        // Mode update the is selected true on socket IO
-        console.log(id);
-    });
-
+    updateWord(547);
 });
 
 // new or returning user // user input?
