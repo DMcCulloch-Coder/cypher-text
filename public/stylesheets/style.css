@@ -81,21 +81,23 @@ a {
 }
 
 /* .word:hover .word__side--back {
+    border: 1rem white solid;
     transform: rotateY(0);
 } */
 
 .agent-1 {
-    background-color: blue;
+    background-color: rgb(62, 62, 255);
 }
 
 .agent-2 {
-    background-color: red;
+    background-color: rgb(238, 29, 29);
 }
 
 .agent-3 {
-    background-color: tan;
+    background-color: rgb(209, 187, 159);
+    color: black;
 }
 
 .agent-4 {
-    background-color: black;
+    background-color: rgb(20, 20, 20);
 }

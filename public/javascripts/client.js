@@ -114,7 +114,7 @@ $(document).ready(() => {
         $.ajax({
             url: url,
             method: "GET",
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 let message;
                 if (roomID) {
                     message = `Unable to join roomID: ${roomID}`;
@@ -134,6 +134,15 @@ $(document).ready(() => {
             location.replace(`/rooms/${roomID}`);
         });
     });
+
+    $(document).on("click", ".word-master", function () {
+        const id = $(this).data("id");
+
+        // For Steve - insert model
+        // Mode update the is selected true on socket IO
+        console.log(id);
+    });
+
 });
 
 // new or returning user // user input?
