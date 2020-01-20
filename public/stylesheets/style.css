@@ -30,7 +30,8 @@ canvas {
 }
 
 a {
-    color: #7feeb6;
+    text-shadow: 1px 1.25px rgb(121, 50, 17);
+    color: rgb(235, 168, 124);
 }
 
 .word {
@@ -200,7 +201,8 @@ a {
 #rules-button{
     margin: 5px;
     border: none;
-    color: #7feeb6;
+    text-shadow: 1px 1.25px rgb(121, 50, 17);
+    color: rgb(235, 168, 124);
     background-color: transparent
 }
 
@@ -219,10 +221,10 @@ a.nav-link.active{
 
 #teams-wrap,
 #scores-header{
-    color: rgb(226, 150, 100);
+    color: #6fdda6;
     font-weight: 500;
     font-size: 35px;
-    text-shadow: 1px 1px rgb(196, 168, 127),  2px 2px rgb(146, 86, 30);
+    text-shadow: 1px 1px darkviolet,  1.75px 1.75px rgb(240, 164, 114);
 }
 
 #teamAscore{
@@ -233,6 +235,10 @@ a.nav-link.active{
 #teamBscore{
     color: blue;
     text-shadow: 1.5px 1.5px rgb(0, 0, 121);
+}
+
+.fas{
+    font-size: 25px;
 }
 
 #clue-total-wrap{
@@ -277,6 +283,11 @@ select#clue-number{
 
 .btn-op{
     background-color: #3eac75;
+}
+
+.nav-icons{
+    color: rgb(155, 64, 22);
+    text-shadow: none;
 }
 
 #submit-clue{
