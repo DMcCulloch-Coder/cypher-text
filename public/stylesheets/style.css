@@ -239,10 +239,6 @@ a.nav-link.active{
     text-shadow: 1.5px 1.5px rgb(0, 0, 121);
 }
 
-.fas{
-    font-size: 25px;
-}
-
 #clue-total-wrap{
     color: rgb(240, 164, 114);
     font-weight: 500;
@@ -287,9 +283,15 @@ select#clue-number{
     background-color: #3eac75;
 }
 
+.far{
+    margin-right: 6px;
+}
+
 .nav-icons{
+    font-size: 18px;
     color: rgb(155, 64, 22);
     text-shadow: none;
+    margin: 6px;
 }
 
 #submit-clue{
