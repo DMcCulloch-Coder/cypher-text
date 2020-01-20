@@ -1,10 +1,8 @@
-{{!-- home
-exit game
-leave room
-help / contact
-rules --}}
-<div id="nav">
-    <a href="/">Home</a>
-    <a href="/rooms/{{room_access_code}}/0">Agent</a>
-    <a href="/rooms/{{room_access_code}}/1">Keymaster</a>
-</div>
+<ul>
+    <ul><a href="/"><i class="nav-icons glyphicon glyphicon-home"></i> Home</a></ul>
+    <ul><button id="rules-button"><i class="nav-icons glyphicon glyphicon-education"></i> Rules</button></ul>
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="/rooms/{{room_access_code}}/0" class="nav-link {{#unless player_type}}active{{/unless}}"><i class="{{#if player_type}}nav-icons{{/if}} glyphicon glyphicon-eye-close"></i> Agent</a></li>
+        <li class="nav-item"><a href="/rooms/{{room_access_code}}/1" class="nav-link {{#if player_type}}active{{/if}}"> <i class="glyphicon {{#unless player_type}}nav-icons{{/unless}} glyphicon-eye-open"></i> KeyMaster</a></li>
+    </ul>
+</ul>
