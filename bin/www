@@ -92,6 +92,12 @@ io.on("connection", socket => {
         console.log(`A user has joined room ID: ${data}`);
         console.log(io.sockets.adapter.rooms[data]); //can be used to check if room exists so someone can join
     });
+    socket.on("word-update", data => {
+        console.log(
+            `wordID: ${data.wordID} for roomID: ${data.roomID} has been updated`
+        );
+        socket.broadcast.to(data.roomID).emit("word-update", data.wordID);
+    });
 });
 
 /**
