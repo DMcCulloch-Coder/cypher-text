@@ -1,3 +1,17 @@
 <div class="game-over">
-    <h1>GAME OVER</h1>
+    <div class="display-results row">
+        <span class="col-2"></span>
+        <span id="teamA" class="team-icons col-2">{{#if winner}}<i class="fas fa-trophy"></i>{{else}}<i class="fas fa-poo"></i>{{/if}}</span>
+        <i class="fas fa-user-secret sleuth-icon col-4"></i>
+        <span id="teamB" class="team-icons col-2">{{#unless winner}}<i class="fas fa-trophy"></i>{{else}}<i class="fas fa-poo"></i>{{/unless}}</span>
+        <span class="col-2"></span>
+    </div>
+    <div class="glitch-hdr row">
+        <h1 class="glitched">GAME <i class="fas fa-search o-replace"></i>VER</h1>
+    </div> 
+    <div class="new-game-nav row">
+        <span class="col-5"></span>
+        <a href="/"><i class="fas fa-home go-icons col-2"></i></a>
+        <span class="col-5"></span>
+    </div>
 </div>
