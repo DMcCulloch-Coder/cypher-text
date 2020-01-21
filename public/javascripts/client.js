@@ -27,6 +27,7 @@ $(document).ready(() => {
                 wordID: id
             };
             socket.emit("word-update", data);
+            location.reload();
         });
     };
 
@@ -73,6 +74,12 @@ $(document).ready(() => {
         });
     };
 
+    // function sendClue(w, n) { // Primarily for testing and connecting purposes
+    //     console.log("sendclue func");
+    //     let clue = `${w} ${n}`;
+    //     socket.emit("update-clue", clue); //either sending or recieving apears to be the issue?
+    // }
+
     //Sends out broadcast to rejoin room to handle page redirection
     if (previousRoom === currentRoom) {
         reJoinRoom(previousRoom);
@@ -80,6 +87,11 @@ $(document).ready(() => {
         //handles case for testing where multiple tabs may be open to different rooms
         reJoinRoom(currentRoom);
     }
+
+    // sends and recieves new clue for room?
+    // socket.on("update-clue", clue => { //either sending or recieving apears to be the issue?
+    //     console.log(`new clue = ${clue}`);
+    // });
 
     //Sends message when new player joins
     socket.on("player-joined-room", msg => {
@@ -176,6 +188,13 @@ $(document).ready(() => {
         updateWord(id);
         // console.log(id);
     });
+
+    // $(document).on("click", "#submit-clue", () => {
+    //     console.log("submit clue click");
+    //     let wordinput = $("#clue-text").val();
+    //     let numinput = $("#clue-number").val();
+    //     sendClue(wordinput, numinput);
+    // });
 
 });
 
