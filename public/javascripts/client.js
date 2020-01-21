@@ -93,7 +93,8 @@ $(document).ready(() => {
 
     //Sends message when joining a room
     socket.on("word-update", data => {
-        console.log(`wordID: ${data} has been updated to visible`);
+        // console.log(`wordID: ${data} has been updated to visible`);
+        location.reload(); // Temporary solution :/
         //NEED TO ADD IN FUCNTIONS FOR MODIFYING WHAT IS SHOWN ON THE GAME BOARD
     });
 
@@ -166,15 +167,16 @@ $(document).ready(() => {
             location.replace(`/rooms/${roomID}`);
         });
     });
-    // $(document).on("click", ".word-master", function () {
-    //     const id = $(this).data("id");
 
-    //     // For Steve - insert model
-    //     // Mode update the is selected true on socket IO
-    //     console.log(id);
-    // });
+    $(document).on("click", ".word-master", function () {
+        const id = $(this).data("id");
 
-    updateWord(547);
+        // For Steve - insert model
+        // Mode update the is selected true on socket IO
+        updateWord(id);
+        // console.log(id);
+    });
+
 });
 
 // new or returning user // user input?
@@ -202,3 +204,10 @@ $(document).ready(() => {
 
 // player_type
 // api/rooms/:id/players /?/
+
+
+//     Game Over Glitch Effect JS    //
+//===================================//
+$("div.glitch-header").append("<div class='glitch-window'></div>");
+$( "h1.glitched" ).clone().appendTo( ".glitch-window" );
+//===================================//
