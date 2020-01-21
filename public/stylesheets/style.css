@@ -17,6 +17,18 @@ body {
     background-color: #222222;
 }
 
+.modal-content {
+    background-color: #343a40;
+}
+
+.close {
+    color: white;
+}
+
+.close:hover {
+    color: white;
+}
+
 #logo {
     width: 300px;
 }
@@ -191,30 +203,33 @@ a {
 /* Room Header Styling */
 /* =================== */
 
-.rooms-header{
+.rooms-header {
     line-height: 1.75;
     align-items: center;
 }
 
-.hdr-item{
+.hdr-item {
     text-align: center;
 }
 
-#rules-button{
+#rules-button {
     margin: 5px;
     border: none;
     text-shadow: 1px 1.25px rgb(121, 50, 17);
     color: rgb(235, 168, 124);
-    background-color: transparent
+    background-color: transparent;
 }
 
-a.nav-link.active{
+a.nav-link.active {
     color: #ffffff !important;
-    background-image: radial-gradient(#222222, rgba(194, 95, 29, 0.8)) !important;
+    background-image: radial-gradient(
+        #222222,
+        rgba(194, 95, 29, 0.8)
+    ) !important;
     border: none;
 }
 
-.scores-wrap{
+.scores-wrap {
     font-size: 30px;
     font-weight: bold;
     line-height: normal;
@@ -222,79 +237,87 @@ a.nav-link.active{
 }
 
 #teams-wrap,
-#scores-header{
+#scores-header {
     color: #6fdda6;
     font-weight: 500;
     font-size: 35px;
-    text-shadow: 1px 1px darkviolet,  1.75px 1.75px rgb(240, 164, 114);
+    text-shadow: 1px 1px darkviolet, 1.75px 1.75px rgb(240, 164, 114);
 }
 
-#teamAscore{
+#teamAscore {
     color: red;
     text-shadow: 1.5px 1.5px rgb(138, 0, 0);
 }
 
-#teamBscore{
+#teamBscore {
     color: blue;
     text-shadow: 1.5px 1.5px rgb(0, 0, 121);
 }
 
-#clue-total-wrap{
+#clue-total-wrap {
     color: rgb(240, 164, 114);
     font-weight: 500;
     font-size: 25px;
-    text-shadow: 0.35px 1.05px rgb(156, 98, 65), 0.8px 1.7px rgba(127, 238, 182, 0.45);
+    text-shadow: 0.35px 1.05px rgb(156, 98, 65),
+        0.8px 1.7px rgba(127, 238, 182, 0.45);
 }
 
-.clue-label{
+.clue-label {
     font-weight: 700;
     font-size: 27.5px;
-    text-shadow: -0.65px 1.25px rgb(94, 69, 99), -1.35px -0.35px rgb(197, 146, 50);
+    text-shadow: -0.65px 1.25px rgb(94, 69, 99),
+        -1.35px -0.35px rgb(197, 146, 50);
 }
 
-#room-name{
+#room-name {
     color: #7feeb6;
     font-size: 35px;
     font-weight: 700;
     text-shadow: -1px 1px #075a32, -1.75px 2px #298a59;
 }
 
-#access-code-display{
+#access-code-display {
     font-weight: lighter;
     color: rgb(202, 150, 112);
     text-shadow: -1px 1px rgba(127, 238, 182, 0.45);
 }
 
-input#clue-text{
+input#clue-text {
     font-size: 20px;
     color: rgb(252, 214, 188);
     width: 125px;
     border-color: rgb(202, 150, 112);
-    background-image: linear-gradient(rgba(83, 28, 28, 0.85), rgba(26, 26, 58, 0.85)) !important;
+    background-image: linear-gradient(
+        rgba(83, 28, 28, 0.85),
+        rgba(26, 26, 58, 0.85)
+    ) !important;
 }
 
-select#clue-number{
+select#clue-number {
     color: rgb(252, 214, 188);
     border: rgb(202, 150, 112) outset 2px;
-    background-image: radial-gradient(rgba(26, 26, 58, 0.85), rgba(83, 28, 28, 0.85));
+    background-image: radial-gradient(
+        rgba(26, 26, 58, 0.85),
+        rgba(83, 28, 28, 0.85)
+    );
 }
 
-.btn-op{
+.btn-op {
     background-color: #3eac75;
 }
 
-.far{
+.far {
     margin-right: 6px;
 }
 
-.nav-icons{
+.nav-icons {
     font-size: 18px;
     color: rgb(155, 64, 22);
     text-shadow: none;
     margin: 6px;
 }
 
-#submit-clue{
+#submit-clue {
     font-size: 15px;
     font-weight: 450;
     background-image: radial-gradient(rgb(73, 67, 67), #222222);
