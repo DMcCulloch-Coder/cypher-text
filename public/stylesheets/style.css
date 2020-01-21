@@ -318,7 +318,6 @@ select#clue-number {
 
 /* Game Over Screen? */
 /* ================= */
-
 div.glitch-hdr {
     position: absolute;
     top: 50%;
@@ -346,7 +345,6 @@ div.glitch-hdr h1 {
     overflow: hidden;
     animation: crt-me 2500ms infinite linear alternate-reverse;
 }
-
 @-webkit-keyframes crt-me {
     0% {
         clip: rect(0px, 9999px, 94px, 0);
@@ -382,7 +380,6 @@ div.glitch-hdr h1 {
         clip: rect(0px, 9999px, 64px, 0);
     }
 }
-
 @keyframes crt-me {
     0% {
         clip: rect(0px, 9999px, 94px, 0);
@@ -418,14 +415,12 @@ div.glitch-hdr h1 {
         clip: rect(0px, 9999px, 64px, 0);
     }
 }
-
 .o-replace {
     font-size: 13rem;
     margin: 0 0 0 20px;
     transform: rotate(90deg);
 }
-
-.go-icons{
+.go-icons {
     font-size: 10rem;
     color: rgb(27, 49, 34);
     text-shadow: 2px 1px red, -1.5px 0 rgb(41, 0, 153),
@@ -433,31 +428,25 @@ div.glitch-hdr h1 {
     background-color: transparent;
     border: none;
 }
-
-.team-icons{
+.team-icons {
     font-size: 13rem;
 }
-
-.sleuth-icon{
+.sleuth-icon {
     font-size: 18rem;
     color: #2e2e2e;
     text-shadow: 2px 1px red, -1.5px 0 rgb(41, 0, 153),
         -2px 1px rgb(196, 141, 70);
-    animation: crt-me 1500ms infinite linear alternate-reverse;
 }
-
-.new-game-nav{
+.new-game-nav {
     position: absolute;
     top: 70%;
     left: 46.5%;
 }
-
-.display-results{
+.display-results {
     margin-top: 7.5rem;
     align-content: center;
     text-align: center;
 }
-
-.game-over{
+.game-over {
     overflow: hidden;
 }
