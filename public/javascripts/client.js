@@ -208,6 +208,6 @@ $(document).ready(() => {
 
 //     Game Over Glitch Effect JS    //
 //===================================//
-$("div.glitch-header").append("<div class='glitch-window'></div>");
+$("div.glitch-hdr").append("<div class='glitch-window'></div>");
 $( "h1.glitched" ).clone().appendTo( ".glitch-window" );
 //===================================//
