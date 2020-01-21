@@ -319,7 +319,7 @@ select#clue-number {
 /* Game Over Screen? */
 /* ================= */
 
-div.glitch-header {
+div.glitch-hdr {
     position: absolute;
     top: 50%;
     left: 0;
@@ -327,7 +327,7 @@ div.glitch-header {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-div.glitch-header h1 {
+div.glitch-hdr h1 {
     font-size: 15rem;
     color: #222222;
     text-align: center;
@@ -427,7 +427,9 @@ div.glitch-header h1 {
 
 .go-icons{
     font-size: 10rem;
-    color: rgb(235, 168, 124);
+    color: rgb(27, 49, 34);
+    text-shadow: 2px 1px red, -1.5px 0 rgb(41, 0, 153),
+        -2px 1px rgb(196, 141, 70);
     background-color: transparent;
     border: none;
 }
@@ -438,12 +440,16 @@ div.glitch-header h1 {
 
 .sleuth-icon{
     font-size: 18rem;
+    color: #2e2e2e;
+    text-shadow: 2px 1px red, -1.5px 0 rgb(41, 0, 153),
+        -2px 1px rgb(196, 141, 70);
+    animation: crt-me 1500ms infinite linear alternate-reverse;
 }
 
 .new-game-nav{
     position: absolute;
     top: 70%;
-    left: 35%;
+    left: 46.5%;
 }
 
 .display-results{
