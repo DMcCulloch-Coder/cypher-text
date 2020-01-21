@@ -1,6 +1,8 @@
 $(document).ready(() => {
     const socket = io();
 
+    let SelectedWordID;
+
     //Will be used to decide whether or not to forward to room or game pages
     const previousRoom = JSON.parse(localStorage.getItem("roomID"));
     let currentRoom = window.location.pathname.split("/rooms/", 2)[1];
@@ -179,14 +181,26 @@ $(document).ready(() => {
             location.replace(`/rooms/${roomID}`);
         });
     });
-
-    $(document).on("click", ".word-master", function () {
-        const id = $(this).data("id");
-
+    $(document).on("click", ".word-master", function() {
+        SelectedWordID = $(this).data("id");
+        $("#confirm-word").text(
+            $(this)
+                .find("div.word__side--front")
+                .text()
+        );
+        $("#ConfirmationModal").modal("show");
         // For Steve - insert model
         // Mode update the is selected true on socket IO
-        updateWord(id);
-        // console.log(id);
+    });
+
+    $(document).on("click", "#confirm-word-choice", function() {
+        console.log(SelectedWordID);
+        updateWord(SelectedWordID);
+    });
+
+    $(document).on("click", "#rules-button", function() {
+        //Display Rules
+        $("#RulesModal").modal("show");
     });
 
     // $(document).on("click", "#submit-clue", () => {
@@ -195,7 +209,6 @@ $(document).ready(() => {
     //     let numinput = $("#clue-number").val();
     //     sendClue(wordinput, numinput);
     // });
-
 });
 
 // new or returning user // user input?

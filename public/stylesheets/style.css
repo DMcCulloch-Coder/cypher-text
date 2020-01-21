@@ -17,6 +17,18 @@ body {
     background-color: #222222;
 }
 
+.modal-content {
+    background-color: #343a40;
+}
+
+.close {
+    color: white;
+}
+
+.close:hover {
+    color: white;
+}
+
 #logo {
     width: 300px;
 }
