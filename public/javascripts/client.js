@@ -107,7 +107,7 @@ $(document).ready(() => {
 
     //Sends message when joining a room
     socket.on("word-update", data => {
-        // console.log(`wordID: ${data} has been updated to visible`);
+        console.log(`wordID: ${data} has been updated to visible`);
         location.reload(); // Temporary solution :/
         //NEED TO ADD IN FUCNTIONS FOR MODIFYING WHAT IS SHOWN ON THE GAME BOARD
     });

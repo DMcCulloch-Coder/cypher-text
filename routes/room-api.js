@@ -140,7 +140,7 @@ router.put("/api/rooms/:id", (req, res) => {
 });
 
 //~~ Doesn'tt appear to be needed yet when rerouting to game over screen can delete room from the database instead? ~~//
-router.delete("/api/rooms/:id", (req, res) => { 
+router.delete("/api/rooms/:id", (req, res) => {
     db.Rooms.destroy({ where: { room_access_code: req.params.id } }).then(result => {
         res.json(result);
         // res.render("index", result);
@@ -157,7 +157,7 @@ router.get("/:id/gameover/:team/:room_name", (req, res) => {
     };
     // res.json(data);
 
-    db.Rooms.destroy({ where: { room_access_code: req.params.id } }).then(result => {
+    db.Rooms.destroy({ where: { room_access_code: req.params.id } }).then(() => {
         // res.json(result);
         // res.render("index", result);
         res.render("gameover", data);
