@@ -25,6 +25,7 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
             ? (data.player_type = 1)
             : (data.player_type = 0);
 
+        let bomb;
         let x = (data.clues.length - 1);
         data.current_clue = data.clues[x];
 
@@ -49,12 +50,20 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
                 data.scores[1]++;
             }
 
+            if (result[0].Words[i].group_type === 4) {
+                bomb = i;
+            }
+
             data.Words.push(index);
         }
-        // let winner = true;    // change to effect icons on game over screen true = red & false = blue?
-        // if (data.scores.includes(0)){
-        // res.render("gameover", {winner: winner});
-        // }
+
+        if (data.scores.includes(0) || data.Words[bomb].visible){
+            let team = data.scores[0] < data.scores[1] ? true : false; // Winner: true = red & false = blue
+            if(!res.headersSent) { // Keps us from getting the "http_outgoing.js:464 throw new ERR_HTTP_HEADERS_SENT('set');" Error
+                res.redirect(`/${data.room_access_code}/gameover/${team}/${data.room_name}`);
+            }
+            res.redirect(`/${data.room_access_code}/gameover/${team}/${data.room_name}`);
+        }
 
         res.render("room", data);
     });
@@ -136,4 +145,18 @@ router.delete("/api/rooms/:id", (req, res) => {
         // res.render("index", result);
     });
 });
+
+//====================== Game Over Screen ====================//
+//============================================================//
+router.get("/:id/gameover/:team/:room_name", (req, res) => {
+    let data = {
+        room_access_code: req.params.id,
+        winner: req.params.team === "false" ? true : false,
+        room_name: req.params.room_name
+    };
+    // res.json(data);
+    res.render("gameover", data);
+});
+//============================================================//
+
 module.exports = router;
