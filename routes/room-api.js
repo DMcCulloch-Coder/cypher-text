@@ -51,10 +51,10 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
 
             data.Words.push(index);
         }
-
-        if (data.scores.includes(0)){
-            res.render("gameover");
-        }
+        // let winner = true;    // change to effect icons on game over screen true = red & false = blue?
+        // if (data.scores.includes(0)){
+        // res.render("gameover", {winner: winner});
+        // }
 
         res.render("room", data);
     });
