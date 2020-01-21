@@ -46,7 +46,7 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
                 !result[0].Words[i].visible &&
                 result[0].Words[i].group_type === 2
             ) {
-                data.scores[1] = data.scores[1] + 1;
+                data.scores[1]++;
             }
 
             data.Words.push(index);
