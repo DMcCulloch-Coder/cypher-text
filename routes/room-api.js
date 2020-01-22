@@ -26,7 +26,7 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
             : (data.player_type = 0);
 
         let bomb;
-        let x = (data.clues.length - 1);
+        let x = data.clues.length - 1;
         data.current_clue = data.clues[x];
 
         for (i = 0; i < result[0].Words.length; i++) {
@@ -57,12 +57,17 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
             data.Words.push(index);
         }
 
-        if (data.scores.includes(0) || data.Words[bomb].visible){
+        if (data.scores.includes(0) || data.Words[bomb].visible) {
             let team = data.scores[0] < data.scores[1] ? true : false; // Winner: true = red & false = blue
-            if(!res.headersSent) { // Keps us from getting the "http_outgoing.js:464 throw new ERR_HTTP_HEADERS_SENT('set');" Error
-                res.redirect(`/${data.room_access_code}/gameover/${team}/${data.room_name}`);
+            if (!res.headersSent) {
+                // Keps us from getting the "http_outgoing.js:464 throw new ERR_HTTP_HEADERS_SENT('set');" Error
+                res.redirect(
+                    `/${data.room_access_code}/gameover/${team}/${data.room_name}`
+                );
             }
-            res.redirect(`/${data.room_access_code}/gameover/${team}/${data.room_name}`);
+            res.redirect(
+                `/${data.room_access_code}/gameover/${team}/${data.room_name}`
+            );
         }
 
         res.render("room", data);
@@ -133,7 +138,9 @@ router.post("/api/rooms", (req, res) => {
 });
 
 router.put("/api/rooms/:id", (req, res) => {
-    db.Rooms.update(req.body, { where: { id: req.params.id } }).then(result => {
+    db.Rooms.update(req.body, {
+        where: { room_access_code: req.params.id }
+    }).then(result => {
         res.json(result);
         // res.render("index", result);
     });
@@ -141,10 +148,12 @@ router.put("/api/rooms/:id", (req, res) => {
 
 //~~ Doesn'tt appear to be needed yet when rerouting to game over screen can delete room from the database instead? ~~//
 router.delete("/api/rooms/:id", (req, res) => {
-    db.Rooms.destroy({ where: { room_access_code: req.params.id } }).then(result => {
-        res.json(result);
-        // res.render("index", result);
-    });
+    db.Rooms.destroy({ where: { room_access_code: req.params.id } }).then(
+        result => {
+            res.json(result);
+            // res.render("index", result);
+        }
+    );
 });
 
 //====================== Game Over Screen ====================//
@@ -157,11 +166,13 @@ router.get("/:id/gameover/:team/:room_name", (req, res) => {
     };
     // res.json(data);
 
-    db.Rooms.destroy({ where: { room_access_code: req.params.id } }).then(() => {
-        // res.json(result);
-        // res.render("index", result);
-        res.render("gameover", data);
-    });
+    db.Rooms.destroy({ where: { room_access_code: req.params.id } }).then(
+        () => {
+            // res.json(result);
+            // res.render("index", result);
+            res.render("gameover", data);
+        }
+    );
 
     // deleteRoom(data.room_access_code);
 });
