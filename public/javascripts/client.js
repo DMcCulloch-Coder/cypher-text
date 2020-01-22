@@ -2,11 +2,6 @@ $(document).ready(() => {
     const socket = io();
 
     let SelectedWordID;
-    let SelectedDictionary;
-
-    console.log($("#dictionary-list").attr("id"));
-
-    $("#dictionary-list :selected").attr("id");
 
     //Will be used to decide whether or not to forward to room or game pages
     const previousRoom = JSON.parse(localStorage.getItem("roomID"));
