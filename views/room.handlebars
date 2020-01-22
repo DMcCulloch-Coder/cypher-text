@@ -7,7 +7,7 @@
         {{#if player_type}}
             <span>{{> submitclue }}</span>
         {{else}}
-            <div class="display-clue-wrap"><label class="clue-label">Current Clue:</label>  {{ current_clue }}</div>
+            <div class="display-clue-wrap"><label class="clue-label">Current Clue:</label>  {{ clue_text }} - {{clue_number}}</div>
         {{/if}}
     </div>
     <div class="scores-wrap hdr-item col-2">{{> scores }}</div>
