@@ -97,9 +97,9 @@ a {
 }
 
 .revealed--back-true {
-    border: .5rem white solid;
+    border: 1rem white solid;
     transform: rotateY(0);
-    padding-top: 2.5rem;
+    padding-top: 2rem;
 }
 
 .lds-roller {
@@ -468,4 +468,8 @@ div.glitch-hdr h1 {
 }
 .game-over {
     overflow: hidden;
+}
+
+#confirm-word-choice {
+    font-size: 15px;
 }

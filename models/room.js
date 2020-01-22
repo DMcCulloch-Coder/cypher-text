@@ -20,6 +20,16 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             unique: false,
             allowNull: true
+        },
+        latest_clue: {
+            type: DataTypes.STRING,
+            unique: false,
+            allowNull: true
+        },
+        latest_clue_count: {
+            type: DataTypes.INTEGER,
+            unique: false,
+            allowNull: true
         }
     });
     return Room;
