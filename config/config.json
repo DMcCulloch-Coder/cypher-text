@@ -1,32 +1,33 @@
 {
-	"development": {
-		"username": "root",
-		"password": "root",
-		"database": "cypher_text_db",
-		"host": "127.0.0.1",
-		"dialect": "mysql",
-		"define": {
-			"underscored": true
-		}
-	},
-	"test": {
-		"username": "root",
-		"password": null,
-		"database": "cypher_text_db",
-		"host": "127.0.0.1",
-		"dialect": "mysql",
-		"define": {
-			"underscored": true
-		}
-	},
-	"production": {
-		"username": "root",
-		"password": null,
-		"database": "cypher_text_db",
-		"host": "127.0.0.1",
-		"dialect": "mysql",
-		"define": {
-			"underscored": true
-		}
-	}
+    "development": {
+        "username": "root",
+        "password": "root",
+        "database": "cypher_text_db",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "logging": false,
+        "define": {
+            "underscored": true
+        }
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "cypher_text_db",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "define": {
+            "underscored": true
+        }
+    },
+    "production": {
+        "username": "root",
+        "password": null,
+        "database": "cypher_text_db",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "define": {
+            "underscored": true
+        }
+    }
 }

@@ -1,8 +1,475 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    height: 100vh;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    height: 100vh;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #222222;
+}
+
+.modal-content {
+    background-color: #343a40;
+}
+
+.close {
+    color: white;
+}
+
+.close:hover {
+    color: white;
+}
+
+#logo {
+    width: 300px;
+}
+canvas {
+    display: block;
+}
+
+#login-background {
+    background-color: #222222;
+    margin-top: 25%;
 }
 
 a {
-  color: #00B7FF;
+    text-shadow: 1px 1.25px rgb(121, 50, 17);
+    color: rgb(235, 168, 124);
+}
+
+.word {
+    height: 7rem;
+    width: 80%;
+    padding-top: 3rem;
+    text-align: center;
+    position: relative;
+    -mox-prespective: 150rem;
+    perspective: 150rem;
+    margin: 2rem auto;
+}
+
+.grid {
+    width: 20%;
+    float: left;
+}
+
+.word__side {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    padding-top: 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 1rem 2rem rgba(194, 95, 29, 0.5);
+    backface-visibility: hidden;
+    transition: all 0.8s ease;
+    line-height: 1rem;
+}
+
+.word__side--front-false {
+    background-color: rgba(255, 255, 255, 0.233);
+    color: white;
+}
+
+.word__side--back {
+    transform: rotateY(180deg);
+}
+
+.word:hover .word__side--front-false {
+    border: 0.2rem white solid;
+    box-shadow: none;
+    transform: scale(1.25);
+    cursor: pointer;
+}
+
+.revealed--front-true {
+    transform: rotateY(180deg);
+}
+
+.revealed--back-true {
+    border: 1rem white solid;
+    transform: rotateY(0);
+    padding-top: 2rem;
+}
+
+.lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+}
+.lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+}
+.lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+}
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+}
+.lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+}
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+}
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+}
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.agent-1 {
+    background-color: rgb(62, 62, 255);
+    color: white;
+}
+
+.agent-2 {
+    background-color: rgb(238, 29, 29);
+    color: white;
+}
+
+.agent-3 {
+    background-color: rgb(209, 187, 159);
+    color: black;
+}
+
+.agent-4 {
+    background-color: rgb(20, 20, 20);
+    color: white;
+}
+
+/* Room Header Styling */
+/* =================== */
+
+.rooms-header {
+    line-height: 1.75;
+    align-items: center;
+}
+
+.hdr-item {
+    text-align: center;
+}
+
+#rules-button {
+    margin: 5px;
+    border: none;
+    text-shadow: 1px 1.25px rgb(121, 50, 17);
+    color: rgb(235, 168, 124);
+    background-color: transparent;
+}
+
+a.nav-link.active {
+    color: #ffffff !important;
+    background-image: radial-gradient(
+        #222222,
+        rgba(194, 95, 29, 0.8)
+    ) !important;
+    border: none;
+}
+
+.scores-wrap {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: normal;
+    background-image: radial-gradient(rgba(230, 160, 114, 0.25), #222222 72%);
+}
+
+#teams-wrap,
+#scores-header {
+    color: #6fdda6;
+    font-weight: 500;
+    font-size: 35px;
+    text-shadow: 1px 1px darkviolet, 1.75px 1.75px rgb(240, 164, 114);
+}
+
+#teamA {
+    color: red;
+    text-shadow: 1.5px 1.5px rgb(138, 0, 0);
+}
+
+#teamB {
+    color: blue;
+    text-shadow: 1.5px 1.5px rgb(0, 0, 121);
+}
+
+#clue-total-wrap {
+    color: rgb(240, 164, 114);
+    font-weight: 500;
+    font-size: 25px;
+    text-shadow: 0.35px 1.05px rgb(156, 98, 65),
+        0.8px 1.7px rgba(127, 238, 182, 0.45);
+}
+
+.clue-label {
+    font-weight: 700;
+    font-size: 27.5px;
+    text-shadow: -0.65px 1.25px rgb(94, 69, 99),
+        -1.35px -0.35px rgb(197, 146, 50);
+}
+
+#room-name {
+    color: #7feeb6;
+    font-size: 35px;
+    font-weight: 700;
+    text-shadow: -1px 1px #075a32, -1.75px 2px #298a59;
+}
+
+#access-code-display {
+    font-weight: lighter;
+    color: rgb(202, 150, 112);
+    text-shadow: -1px 1px rgba(127, 238, 182, 0.45);
+}
+
+input#clue-text {
+    font-size: 20px;
+    color: rgb(252, 214, 188);
+    width: 125px;
+    border-color: rgb(202, 150, 112);
+    background-image: linear-gradient(
+        rgba(83, 28, 28, 0.85),
+        rgba(26, 26, 58, 0.85)
+    ) !important;
+}
+
+select#clue-number {
+    color: rgb(252, 214, 188);
+    border: rgb(202, 150, 112) outset 2px;
+    background-image: radial-gradient(
+        rgba(26, 26, 58, 0.85),
+        rgba(83, 28, 28, 0.85)
+    );
+}
+
+.btn-op {
+    background-color: #3eac75;
+}
+
+.far {
+    margin-right: 6px;
+}
+
+.nav-icons {
+    font-size: 18px;
+    color: rgb(155, 64, 22);
+    text-shadow: none;
+    margin: 6px;
+}
+
+#submit-clue {
+    font-size: 15px;
+    font-weight: 450;
+    background-image: radial-gradient(rgb(73, 67, 67), #222222);
+    color: rgb(202, 150, 112);
+    border-style: outset;
+    padding: 3px;
+    border-radius: 10%;
+    border-color: rgb(202, 150, 112);
+}
+
+/* Game Over Screen? */
+/* ================= */
+div.glitch-hdr {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+div.glitch-hdr h1 {
+    font-size: 15rem;
+    color: #222222;
+    text-align: center;
+    margin-top: 0;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+.glitch-window {
+    position: absolute;
+    top: 0;
+    left: -2px;
+    width: 100%;
+    color: #222222;
+    text-shadow: 2px 1px red, -1.5px 0 rgb(41, 0, 153),
+        -2px 1px rgb(196, 141, 70);
+    overflow: hidden;
+    animation: crt-me 2500ms infinite linear alternate-reverse;
+}
+@-webkit-keyframes crt-me {
+    0% {
+        clip: rect(0px, 9999px, 94px, 0);
+    }
+    10% {
+        clip: rect(112px, 9999px, 76px, 0);
+    }
+    20% {
+        clip: rect(85px, 9999px, auto, 0);
+    }
+    30% {
+        clip: rect(27px, 9999px, 97px, 0);
+    }
+    40% {
+        clip: rect(64px, 9999px, 98px, 0);
+    }
+    50% {
+        clip: rect(61px, 9999px, 85px, 0);
+    }
+    60% {
+        clip: rect(99px, 9999px, 114px, 0);
+    }
+    70% {
+        clip: rect(34px, 9999px, 115px, 0);
+    }
+    80% {
+        clip: rect(98px, 9999px, 129px, 0);
+    }
+    90% {
+        clip: rect(43px, 9999px, 96px, 0);
+    }
+    100% {
+        clip: rect(0px, 9999px, 64px, 0);
+    }
+}
+@keyframes crt-me {
+    0% {
+        clip: rect(0px, 9999px, 94px, 0);
+    }
+    10% {
+        clip: rect(112px, 9999px, 76px, 0);
+    }
+    20% {
+        clip: rect(85px, 9999px, 77px, 0);
+    }
+    30% {
+        clip: rect(27px, 9999px, 97px, 0);
+    }
+    40% {
+        clip: rect(64px, 9999px, 98px, 0);
+    }
+    50% {
+        clip: rect(61px, 9999px, 85px, 0);
+    }
+    60% {
+        clip: rect(99px, 9999px, 114px, 0);
+    }
+    70% {
+        clip: rect(34px, auto, auto, 0);
+    }
+    80% {
+        clip: rect(98px, 9999px, 129px, 0);
+    }
+    90% {
+        clip: rect(43px, 9999px, 96px, 0);
+    }
+    100% {
+        clip: rect(0px, 9999px, 64px, 0);
+    }
+}
+.o-replace {
+    font-size: 13rem;
+    margin: 0 0 0 20px;
+    transform: rotate(90deg);
+}
+.go-icons {
+    font-size: 10rem;
+    color: rgb(27, 49, 34);
+    text-shadow: 2px 1px red, -1.5px 0 rgb(41, 0, 153),
+        -2px 1px rgb(196, 141, 70);
+    background-color: transparent;
+    border: none;
+}
+.team-icons {
+    font-size: 13rem;
+}
+.sleuth-icon {
+    font-size: 18rem;
+    color: #2e2e2e;
+    text-shadow: 2px 1px red, -1.5px 0 rgb(41, 0, 153),
+        -2px 1px rgb(196, 141, 70);
+}
+.new-game-nav {
+    position: absolute;
+    top: 70%;
+    left: 46.5%;
+}
+.display-results {
+    margin-top: 7.5rem;
+    align-content: center;
+    text-align: center;
+}
+.game-over {
+    overflow: hidden;
+}
+
+#confirm-word-choice {
+    font-size: 15px;
 }

@@ -1,0 +1,13 @@
+{{#each Words}}
+<div data-id="{{id}}" name="word-{{id}}" data-group="{{group_type}}" class="grid word-agent revealed-{{visible}}">
+    <div class="word">
+        <div class="word__side word__side--front-{{visible}}  word__side--front-{{id}} revealed--front-{{visible}}">
+            {{word}}
+        </div>
+        <div
+            class="word__side word__side--back  word__side--back-{{id}} agent-{{group_type}} revealed--back-{{visible}}">
+            {{word}}
+        </div>
+    </div>
+</div>
+{{/each}}
