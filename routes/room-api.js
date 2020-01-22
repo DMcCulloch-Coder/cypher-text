@@ -14,8 +14,8 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
         console.log(result);
         let data = {
             player_type: 0, //0/false = agent vs 1/true = keymaster
-            clue_text: result[0].clue_text,
-            clue_num: result[0].clue_number,
+            clue_text: result[0].latest_clue || "Waiting For New Clue",
+            clue_num: result[0].latest_clue_count,
             room_name: result[0].room_name,
             room_access_code: result[0].room_access_code,
             scores: [0, 0],
@@ -26,8 +26,6 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
             : (data.player_type = 0);
 
         let bomb;
-        let x = data.clues.length - 1;
-        data.current_clue = data.clues[x];
 
         for (i = 0; i < result[0].Words.length; i++) {
             let index = {
