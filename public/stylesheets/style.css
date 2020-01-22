@@ -72,6 +72,7 @@ a {
     left: 0;
     box-shadow: 0 1rem 2rem rgba(194, 95, 29, 0.5);
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     transition: all 0.8s ease;
     line-height: 1rem;
 }
