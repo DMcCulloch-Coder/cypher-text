@@ -106,9 +106,7 @@ $(document).ready(() => {
     // sends and recieves new clue for room?
     socket.on("update-clue", clue => {
         //either sending or recieving apears to be the issue?
-        console.log(
-            `Clue has been updated: ${clue.latest_clue} for ${clue.latest_clue_count} words`
-        );
+        console.log(`Clue has been updated: ${clue.latest_clue} for ${clue.latest_clue_count} words`);
         location.reload();
     });
 
