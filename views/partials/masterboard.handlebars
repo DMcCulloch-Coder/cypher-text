@@ -1,42 +1,37 @@
-<div class="modal fade" id="ConfirmationModal" tabindex="-1" role="dialog"
-    aria-labelledby="ConfirmationModalTitle" aria-hidden="true">
+<div class="modal fade" id="ConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="ConfirmationModalTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-warning"
-                    id="ConfirmationModalTitle">
+                <h5 class="modal-title text-warning" id="ConfirmationModalTitle">
                     Select Word
                     Confirmation
                 </h5>
-                <button type="button" class="close" data-dismiss="modal"
-                    aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <p class="text-white">Please confirm you choice for the
-                    word:<span class="text-warning font-weight-bold"
-                        id="confirm-word"></span></p>
+                    word:<span class="text-warning font-weight-bold" id="confirm-word"></span></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"
-                    data-dismiss="modal">Go Back</button>
-                <button type="button" class="btn btn-info"
-                    id="confirm-word-choice">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+                <button type="button" class="btn btn-info" id="confirm-word-choice">Confirm</button>
             </div>
         </div>
     </div>
 </div>
 {{#each Words}}
 <div data-id="{{id}}" id="word-{{id}}" data-group="{{group_type}}"
-    class="grid word-master selected-{{visible}}">
+    class="grid word-master-{{visible}} selected-{{visible}}">
     <div class="word">
         <div
-            class="agent-{{group_type}} word__side word__side--front  word__side--front-{{id}}">
+            class="agent-{{group_type}} word__side word__side--front-{{visible}}  word__side--front-{{id}} revealed--front-{{visible}}">
             {{word}}
         </div>
         <div
-            class="agent-back-{{group_type}} word__side word__side--back  word__side--back-{{id}}">
+            class="agent-{{group_type}} word__side word__side--back  word__side--back-{{id}} revealed--back-{{visible}}">
             {{word}}
         </div>
     </div>
