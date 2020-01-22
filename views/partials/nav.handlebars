@@ -1,43 +1,66 @@
-<div class="modal fade" id="RulesModal" tabindex="-1" role="dialog"
-    aria-labelledby="RulesModalTitle" aria-hidden="true">
+<div class="modal fade" id="RulesModal" tabindex="-1" role="dialog" aria-labelledby="RulesModalTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title text-warning" id="RulesModalTitle">
                     How to Play Cypher-Text
                 </h5>
-                <button type="button" class="close" data-dismiss="modal"
-                    aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <h5 class="text-warning text-left">Rules of the Game</h5>
-                <p class="text-white text-left">Insert MODAL CONTENT DURING ZOOM
-                    CALL</p>
+                <p class="text-white text-left">
+                    Cypher Text Rules:<br />
+
+                    Players: 4+ (split into two equal teams)<br />
+                    Ages: 8+<br />
+
+                    Summary:<br />
+                    Pick a player for each team to be the Code-Master! They will be making the clues for your team and
+                    working behind the scenes. The two that are signed in to the game as the Code-Master will be able to
+                    see the answers (which they are to hide, and not reveal under ANY CIRCUMSTANCES… It could mean life
+                    or death!). Once you enter a room there will be 15 randomly selected words that will be the board
+                    for this round.<br />
+                    The Code-Masters know the secret code and get their team to crack the code before the other team,
+                    all the while avoiding the fatal error which will end the game early and lead to your system’s
+                    destruction!<br />
+
+                    On your turn:<br />
+                    The Code-Master will give their team ONE WORD and ONE NUMBER. The word is a passphrase they think
+                    their team will associate with the words that will lead their team to crack their code. The first
+                    team will need to decypher nine words, while the second team will have to decypher eight. You have
+                    as many guesses each round as the number that was given by the Code-Master. As long as you still
+                    have guessed, you can keep going, unless you select a passphrase isn’t a part of your team’s code.
+                    If you select an opponent’s passphrase, they get that word AND your turn ends. The turn also ends if
+                    you guess a neutral passphrase OR if you run out of guesses. However, if you find the FATAL ERROR
+                    the game is over and you have lost!<br />
+
+                    Once your turn ends, as long as you haven’t deciphered your code or uncovered the FATAL ERROR, the
+                    other team will take their turn.<br />
+
+                </p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"
-                    data-dismiss="modal">Go Back</button>
-                <button type="button" class="btn btn-info"
-                    id="confirm-word-choice">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+                <button type="button" class="btn btn-info" id="confirm-word-choice">Confirm</button>
             </div>
         </div>
     </div>
 </div>
 <ul>
     <ul><a href="/"><i class="fas fa-home nav-icons"></i> Home</a></ul>
-    <ul><button id="rules-button"><i
-                class="fas fa-graduation-cap nav-icons"></i>
+    <ul><button id="rules-button"><i class="fas fa-graduation-cap nav-icons"></i>
             Rules</button></ul>
     <ul class="nav nav-tabs">
         <li class="nav-item"><a href="/rooms/{{room_access_code}}/0"
                 class="nav-link {{#unless player_type}}active{{/unless}}"><i
                     class="{{#if player_type}}nav-icons{{/if}} far fa-eye-slash"></i>
                 Agent</a></li>
-        <li class="nav-item"><a href="/rooms/{{room_access_code}}/1"
-                class="nav-link {{#if player_type}}active{{/if}}"> <i
-                    class="far fa-eye {{#unless player_type}}nav-icons{{/unless}}"></i>
+        <li class="nav-item"><a href="/rooms/{{room_access_code}}/1" class="nav-link {{#if player_type}}active{{/if}}">
+                <i class="far fa-eye {{#unless player_type}}nav-icons{{/unless}}"></i>
                 KeyMaster</a></li>
     </ul>
 </ul>
