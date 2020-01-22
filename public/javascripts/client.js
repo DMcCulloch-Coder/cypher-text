@@ -175,8 +175,9 @@ $(document).ready(() => {
 
     $("#join-room-input").on("click", event => {
         event.preventDefault();
-        let roomID = $("#access-code-input").val();
-        roomID.toUpperCase();
+        let roomID = $("#access-code-input")
+            .val()
+            .toUpperCase();
         const url = `/rooms/${roomID}`;
         console.log(roomID);
 
