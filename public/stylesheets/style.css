@@ -269,9 +269,16 @@ a.nav-link.active {
         0.8px 1.7px rgba(127, 238, 182, 0.45);
 }
 
-.clue-label {
+.cur-clue-label {
     font-weight: 700;
-    font-size: 27.5px;
+    font-size: 28px;
+    text-shadow: -0.65px 1.25px rgb(94, 69, 99),
+        -1.35px -0.35px rgb(197, 146, 50);
+}
+
+.clue-label {
+    font-weight: 600;
+    font-size: 25px;
     text-shadow: -0.65px 1.25px rgb(94, 69, 99),
         -1.35px -0.35px rgb(197, 146, 50);
 }
@@ -288,11 +295,25 @@ a.nav-link.active {
     color: rgb(202, 150, 112);
     text-shadow: -1px 1px rgba(127, 238, 182, 0.45);
 }
+#cur-disp-clue{
+    text-align: center;
+    align-content: center;
+    margin-left: 10px;
+}
+.submit-clue-wrap{
+    padding-left: 65px;
+}
+.display-clue-wrap{
+    padding-left: 51px;
+}
 
 input#clue-text {
+    height: 35px;
     font-size: 20px;
     color: rgb(252, 214, 188);
-    width: 125px;
+    margin-top: 5px;
+    width: 150px;
+    margin-left: 5px;
     border-color: rgb(202, 150, 112);
     background-image: linear-gradient(
         rgba(83, 28, 28, 0.85),
@@ -301,6 +322,8 @@ input#clue-text {
 }
 
 select#clue-number {
+    margin-top: 5px;
+    height: 35px;
     color: rgb(252, 214, 188);
     border: rgb(202, 150, 112) outset 2px;
     background-image: radial-gradient(
@@ -326,7 +349,9 @@ select#clue-number {
 
 #submit-clue {
     font-size: 15px;
+    height: 35px;
     font-weight: 450;
+    margin-top: 5px;
     background-image: radial-gradient(rgb(73, 67, 67), #222222);
     color: rgb(202, 150, 112);
     border-style: outset;
