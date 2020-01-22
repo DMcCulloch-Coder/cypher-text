@@ -76,11 +76,24 @@ $(document).ready(() => {
         });
     };
 
-    // function sendClue(w, n) { // Primarily for testing and connecting purposes
-    //     console.log("sendclue func");
-    //     let clue = `${w} ${n}`;
-    //     socket.emit("update-clue", clue); //either sending or recieving apears to be the issue?
-    // }
+    function sendClue(w, n) {
+        // Primarily for testing and connecting purposes
+        let clue = {
+            room_access_code: previousRoom,
+            latest_clue: w,
+            latest_clue_count: n
+        };
+
+        const url = `/api/rooms/${previousRoom}`;
+        $.ajax({
+            url: url,
+            method: "PUT",
+            data: clue
+        }).then(() => {
+            socket.emit("update-clue", clue); //either sending or recieving apears to be the issue?
+            location.reload();
+        });
+    }
 
     //Sends out broadcast to rejoin room to handle page redirection
     if (previousRoom === currentRoom) {
@@ -91,9 +104,12 @@ $(document).ready(() => {
     }
 
     // sends and recieves new clue for room?
-    // socket.on("update-clue", clue => { //either sending or recieving apears to be the issue?
-    //     console.log(`new clue = ${clue}`);
-    // });
+    socket.on("update-clue", clue => {
+        //either sending or recieving apears to be the issue?
+        console.log(
+            `Clue has been updated: ${clue.latest_clue} for ${clue.latest_clue_count} words`
+        );
+    });
 
     //Sends message when new player joins
     socket.on("player-joined-room", msg => {
@@ -204,12 +220,11 @@ $(document).ready(() => {
         $("#RulesModal").modal("show");
     });
 
-    // $(document).on("click", "#submit-clue", () => {
-    //     console.log("submit clue click");
-    //     let wordinput = $("#clue-text").val();
-    //     let numinput = $("#clue-number").val();
-    //     sendClue(wordinput, numinput);
-    // });
+    $(document).on("click", "#submit-clue", () => {
+        let wordinput = $("#clue-text").val();
+        let numinput = $("#clue-number").val();
+        sendClue(wordinput, numinput);
+    });
 });
 
 // new or returning user // user input?
