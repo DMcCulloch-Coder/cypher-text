@@ -6,8 +6,6 @@ $(document).ready(() => {
 
     console.log($("#dictionary-list").attr("id"));
 
-    console.log();
-
     $("#dictionary-list :selected").attr("id");
 
     //Will be used to decide whether or not to forward to room or game pages
@@ -177,7 +175,8 @@ $(document).ready(() => {
 
     $("#join-room-input").on("click", event => {
         event.preventDefault();
-        const roomID = $("#access-code-input").val();
+        let roomID = $("#access-code-input").val();
+        roomID.toUpperCase();
         const url = `/rooms/${roomID}`;
         console.log(roomID);
 
