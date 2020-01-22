@@ -244,12 +244,12 @@ a.nav-link.active {
     text-shadow: 1px 1px darkviolet, 1.75px 1.75px rgb(240, 164, 114);
 }
 
-#teamAscore {
+#teamA {
     color: red;
     text-shadow: 1.5px 1.5px rgb(138, 0, 0);
 }
 
-#teamBscore {
+#teamB {
     color: blue;
     text-shadow: 1.5px 1.5px rgb(0, 0, 121);
 }
@@ -326,4 +326,139 @@ select#clue-number {
     padding: 3px;
     border-radius: 10%;
     border-color: rgb(202, 150, 112);
+}
+
+/* Game Over Screen? */
+/* ================= */
+div.glitch-hdr {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+div.glitch-hdr h1 {
+    font-size: 15rem;
+    color: #222222;
+    text-align: center;
+    margin-top: 0;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+.glitch-window {
+    position: absolute;
+    top: 0;
+    left: -2px;
+    width: 100%;
+    color: #222222;
+    text-shadow: 2px 1px red, -1.5px 0 rgb(41, 0, 153),
+        -2px 1px rgb(196, 141, 70);
+    overflow: hidden;
+    animation: crt-me 2500ms infinite linear alternate-reverse;
+}
+@-webkit-keyframes crt-me {
+    0% {
+        clip: rect(0px, 9999px, 94px, 0);
+    }
+    10% {
+        clip: rect(112px, 9999px, 76px, 0);
+    }
+    20% {
+        clip: rect(85px, 9999px, auto, 0);
+    }
+    30% {
+        clip: rect(27px, 9999px, 97px, 0);
+    }
+    40% {
+        clip: rect(64px, 9999px, 98px, 0);
+    }
+    50% {
+        clip: rect(61px, 9999px, 85px, 0);
+    }
+    60% {
+        clip: rect(99px, 9999px, 114px, 0);
+    }
+    70% {
+        clip: rect(34px, 9999px, 115px, 0);
+    }
+    80% {
+        clip: rect(98px, 9999px, 129px, 0);
+    }
+    90% {
+        clip: rect(43px, 9999px, 96px, 0);
+    }
+    100% {
+        clip: rect(0px, 9999px, 64px, 0);
+    }
+}
+@keyframes crt-me {
+    0% {
+        clip: rect(0px, 9999px, 94px, 0);
+    }
+    10% {
+        clip: rect(112px, 9999px, 76px, 0);
+    }
+    20% {
+        clip: rect(85px, 9999px, 77px, 0);
+    }
+    30% {
+        clip: rect(27px, 9999px, 97px, 0);
+    }
+    40% {
+        clip: rect(64px, 9999px, 98px, 0);
+    }
+    50% {
+        clip: rect(61px, 9999px, 85px, 0);
+    }
+    60% {
+        clip: rect(99px, 9999px, 114px, 0);
+    }
+    70% {
+        clip: rect(34px, auto, auto, 0);
+    }
+    80% {
+        clip: rect(98px, 9999px, 129px, 0);
+    }
+    90% {
+        clip: rect(43px, 9999px, 96px, 0);
+    }
+    100% {
+        clip: rect(0px, 9999px, 64px, 0);
+    }
+}
+.o-replace {
+    font-size: 13rem;
+    margin: 0 0 0 20px;
+    transform: rotate(90deg);
+}
+.go-icons {
+    font-size: 10rem;
+    color: rgb(27, 49, 34);
+    text-shadow: 2px 1px red, -1.5px 0 rgb(41, 0, 153),
+        -2px 1px rgb(196, 141, 70);
+    background-color: transparent;
+    border: none;
+}
+.team-icons {
+    font-size: 13rem;
+}
+.sleuth-icon {
+    font-size: 18rem;
+    color: #2e2e2e;
+    text-shadow: 2px 1px red, -1.5px 0 rgb(41, 0, 153),
+        -2px 1px rgb(196, 141, 70);
+}
+.new-game-nav {
+    position: absolute;
+    top: 70%;
+    left: 46.5%;
+}
+.display-results {
+    margin-top: 7.5rem;
+    align-content: center;
+    text-align: center;
+}
+.game-over {
+    overflow: hidden;
 }
