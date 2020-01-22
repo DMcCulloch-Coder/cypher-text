@@ -160,7 +160,7 @@ $(document).ready(() => {
         $.ajax({
             url: url,
             method: "GET",
-            error: function () {
+            error: function() {
                 //xhr, status, error
                 let message;
                 if (roomID) {
@@ -182,11 +182,11 @@ $(document).ready(() => {
         });
     });
 
-    $(document).on("click", ".word-master-false", function () {
+    $(document).on("click", ".word-master-false", function() {
         SelectedWordID = $(this).data("id");
         $("#confirm-word").text(
             $(this)
-                .find("div.word__side--front")
+                .find("div.word__side--front-false")
                 .text()
         );
         $("#ConfirmationModal").modal("show");
@@ -194,12 +194,12 @@ $(document).ready(() => {
         // Mode update the is selected true on socket IO
     });
 
-    $(document).on("click", "#confirm-word-choice", function () {
+    $(document).on("click", "#confirm-word-choice", function() {
         console.log(SelectedWordID);
         updateWord(SelectedWordID);
     });
 
-    $(document).on("click", "#rules-button", function () {
+    $(document).on("click", "#rules-button", function() {
         //Display Rules
         $("#RulesModal").modal("show");
     });
@@ -238,9 +238,10 @@ $(document).ready(() => {
 // player_type
 // api/rooms/:id/players /?/
 
-
 //     Game Over Glitch Effect JS    //
 //===================================//
 $("div.glitch-hdr").append("<div class='glitch-window'></div>");
-$("h1.glitched").clone().appendTo(".glitch-window");
+$("h1.glitched")
+    .clone()
+    .appendTo(".glitch-window");
 //===================================//
