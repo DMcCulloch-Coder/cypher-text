@@ -1,9 +1,15 @@
 <div class="game-over">
     <div class="display-results row">
         <span class="col-2"></span>
-        <span id="teamA" class="team-icons col-2">{{#if winner}}<i class="fas fa-trophy"></i>{{else}}<i class="fas fa-poo"></i>{{/if}}</span>
+        <span id="teamA" class="team-icons col-2">
+            {{#if tie}}<i class="fas fa-glass-cheers"></i>
+            {{else if winner}}<i class="fas fa-trophy"></i>{{else}}<i class="fas fa-poo"></i>{{/if}}
+        </span>
         <i class="fas fa-user-secret sleuth-icon col-4"></i>
-        <span id="teamB" class="team-icons col-2">{{#unless winner}}<i class="fas fa-trophy"></i>{{else}}<i class="fas fa-poo"></i>{{/unless}}</span>
+        <span id="teamB" class="team-icons col-2">
+            {{#if tie}}<i class="fas fa-glass-cheers"></i>
+            {{else if winner}}<i class="fas fa-poo"></i>{{else}}<i class="fas fa-trophy"></i>{{/if}}
+        </span>
         <span class="col-2"></span>
     </div>
     <div class="glitch-hdr row">
