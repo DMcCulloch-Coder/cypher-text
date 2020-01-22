@@ -12,6 +12,10 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
         ]
     }).then(result => {
         console.log(result);
+        if (result === undefined || result.length === 0) {
+            res.sendStatus(404).end();
+            return;
+        }
         let data = {
             player_type: 0, //0/false = agent vs 1/true = keymaster
             clue_text: result[0].latest_clue || "Waiting For New Clue",
@@ -57,14 +61,15 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
 
         if (data.scores.includes(0) || data.Words[bomb].visible) {
             let team = data.scores[0] < data.scores[1] ? true : false; // Winner: true = red & false = blue
+            let tie = data.scores[0] === data.scores[1] ? true : false;
             if (!res.headersSent) {
                 // Keps us from getting the "http_outgoing.js:464 throw new ERR_HTTP_HEADERS_SENT('set');" Error
                 res.redirect(
-                    `/${data.room_access_code}/gameover/${team}/${data.room_name}`
+                    `/${data.room_access_code}/gameover/${team}/${data.room_name}/${tie}`
                 );
             }
             res.redirect(
-                `/${data.room_access_code}/gameover/${team}/${data.room_name}`
+                `/${data.room_access_code}/gameover/${team}/${data.room_name}/${tie}`
             );
         }
 
@@ -156,11 +161,12 @@ router.delete("/api/rooms/:id", (req, res) => {
 
 //====================== Game Over Screen ====================//
 //============================================================//
-router.get("/:id/gameover/:team/:room_name", (req, res) => {
+router.get("/:id/gameover/:team/:room_name/:tie", (req, res) => {
     let data = {
         room_access_code: req.params.id,
         winner: req.params.team === "false" ? true : false,
-        room_name: req.params.room_name
+        room_name: req.params.room_name,
+        tie: req.params.tie === "true" ? true : false
     };
     // res.json(data);
 
