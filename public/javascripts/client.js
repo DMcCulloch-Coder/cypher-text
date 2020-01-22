@@ -2,11 +2,6 @@ $(document).ready(() => {
     const socket = io();
 
     let SelectedWordID;
-    let SelectedDictionary;
-
-    console.log($("#dictionary-list").attr("id"));
-
-    $("#dictionary-list :selected").attr("id");
 
     //Will be used to decide whether or not to forward to room or game pages
     const previousRoom = JSON.parse(localStorage.getItem("roomID"));
@@ -173,8 +168,9 @@ $(document).ready(() => {
 
     $("#join-room-input").on("click", event => {
         event.preventDefault();
-        let roomID = $("#access-code-input").val();
-        roomID.toUpperCase();
+        let roomID = $("#access-code-input")
+            .val()
+            .toUpperCase();
         const url = `/rooms/${roomID}`;
         console.log(roomID);
 
