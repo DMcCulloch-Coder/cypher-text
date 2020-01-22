@@ -181,7 +181,8 @@ $(document).ready(() => {
             location.replace(`/rooms/${roomID}`);
         });
     });
-    $(document).on("click", ".word-master", function() {
+
+    $(document).on("click", ".word-master-false", function () {
         SelectedWordID = $(this).data("id");
         $("#confirm-word").text(
             $(this)
@@ -193,12 +194,12 @@ $(document).ready(() => {
         // Mode update the is selected true on socket IO
     });
 
-    $(document).on("click", "#confirm-word-choice", function() {
+    $(document).on("click", "#confirm-word-choice", function () {
         console.log(SelectedWordID);
         updateWord(SelectedWordID);
     });
 
-    $(document).on("click", "#rules-button", function() {
+    $(document).on("click", "#rules-button", function () {
         //Display Rules
         $("#RulesModal").modal("show");
     });
@@ -241,5 +242,5 @@ $(document).ready(() => {
 //     Game Over Glitch Effect JS    //
 //===================================//
 $("div.glitch-hdr").append("<div class='glitch-window'></div>");
-$( "h1.glitched" ).clone().appendTo( ".glitch-window" );
+$("h1.glitched").clone().appendTo(".glitch-window");
 //===================================//
