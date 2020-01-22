@@ -92,11 +92,17 @@ a {
     cursor: pointer;
 }
 
-/* .word:hover .word__side--back {
-    border: 1rem white solid;
-    transform: rotateY(0);
+.revealed--front-true {
+    transform: rotateY(180deg);
+
 }
-*/
+
+.revealed--back-true {
+    border: 1rem white solid;
+    transform: rotateY(0);    
+    padding-top: 2rem;
+
+}
 
 .lds-roller {
     display: inline-block;
@@ -185,19 +191,26 @@ a {
 
 .agent-1 {
     background-color: rgb(62, 62, 255);
+    color: white;
+
 }
 
 .agent-2 {
     background-color: rgb(238, 29, 29);
+    color: white;
+
 }
 
 .agent-3 {
     background-color: rgb(209, 187, 159);
     color: black;
+
 }
 
 .agent-4 {
     background-color: rgb(20, 20, 20);
+    color: white;
+
 }
 
 /* Room Header Styling */
@@ -462,3 +475,14 @@ div.glitch-hdr h1 {
 .game-over {
     overflow: hidden;
 }
+
+#confirm-word-choice {
+    padding: 10px;
+    font-size: 20px;
+}
+
+#confirm-word {
+    font-size: 26px;
+}
+
+
