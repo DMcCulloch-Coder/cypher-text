@@ -2,6 +2,13 @@ $(document).ready(() => {
     const socket = io();
 
     let SelectedWordID;
+    let SelectedDictionary;
+
+    console.log($("#dictionary-list").attr("id"));
+
+    console.log();
+
+    $("#dictionary-list :selected").attr("id");
 
     //Will be used to decide whether or not to forward to room or game pages
     const previousRoom = JSON.parse(localStorage.getItem("roomID"));
@@ -109,6 +116,7 @@ $(document).ready(() => {
         console.log(
             `Clue has been updated: ${clue.latest_clue} for ${clue.latest_clue_count} words`
         );
+        location.reload();
     });
 
     //Sends message when new player joins

@@ -21,10 +21,10 @@
         }
     },
     "production": {
-        "username": "root",
-        "password": null,
-        "database": "cypher_text_db",
-        "host": "127.0.0.1",
+        "username": "wbrehh2ajv1gzqy3",
+        "password": "jlvliqt94opjzpf4",
+        "database": "pcy8waogc7w6p440",
+        "host": "ou6zjjcqbi307lip.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         "dialect": "mysql",
         "define": {
             "underscored": true
