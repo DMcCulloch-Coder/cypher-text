@@ -61,13 +61,18 @@ $(document).ready(() => {
             }).then(res => {
                 console.log(`Deleted ${res} words for roomID ${roomID}`);
                 const newWordURL = "/api/words/";
+                const selectedDictionary = $("#dictionary-list :selected").attr(
+                    "id"
+                );
                 //Get room from DB so we can grab id to reset room
+                console.log(`Dictionary ID:${selectedDictionary}`);
                 console.log(id);
                 $.ajax({
                     url: newWordURL,
                     method: "POST",
                     data: {
-                        id: id
+                        id: id,
+                        dictionary: selectedDictionary
                     }
                 }).then(res => {
                     res;
@@ -106,7 +111,9 @@ $(document).ready(() => {
     // sends and recieves new clue for room?
     socket.on("update-clue", clue => {
         //either sending or recieving apears to be the issue?
-        console.log(`Clue has been updated: ${clue.latest_clue} for ${clue.latest_clue_count} words`);
+        console.log(
+            `Clue has been updated: ${clue.latest_clue} for ${clue.latest_clue_count} words`
+        );
         location.reload();
     });
 
@@ -128,13 +135,6 @@ $(document).ready(() => {
     });
 
     //Once client initially connects we allow it to create a room and send that back to the server to setup
-
-    $.ajax({
-        url: "/api/words",
-        method: "GET"
-    }).then(res => {
-        console.log(res);
-    });
 
     $("#create-room-input").on("click", event => {
         event.preventDefault();
@@ -192,11 +192,20 @@ $(document).ready(() => {
                     $("#error-message").text("");
                 }, 3000);
             }
-        }).then(() => {
-            socket.emit("broadcast-room", roomID);
-            localStorage.setItem("roomID", JSON.stringify(roomID));
-            location.replace(`/rooms/${roomID}`);
-        });
+        })
+            .then(() => {
+                socket.emit("broadcast-room", roomID);
+                localStorage.setItem("roomID", JSON.stringify(roomID));
+                location.replace(`/rooms/${roomID}`);
+            })
+            .error(err => {
+                $("#error-message").text(err);
+                $("#error-notice").toggle();
+                setTimeout(() => {
+                    $("#error-notice").toggle();
+                    $("#error-message").text("");
+                }, 3000);
+            });
     });
 
     $(document).on("click", ".word-master-false", function() {

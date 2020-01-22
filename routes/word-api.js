@@ -3,13 +3,6 @@ const db = require("../models");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
-const filePath = path.join(
-    __dirname,
-    "..",
-    "public",
-    "data",
-    "cypher_text_default_dictionary.txt"
-);
 
 /* Word API Routes */
 router.get("/api/words", (req, res) => {
@@ -27,6 +20,54 @@ router.get("/api/words/:id", (req, res) => {
 });
 
 router.post("/api/words", (req, res) => {
+    let filePath;
+    switch (req.body.dictionary) {
+        case "d1":
+            filePath = path.join(
+                __dirname,
+                "..",
+                "public",
+                "data",
+                "cypher_text_default_dictionary.txt"
+            );
+            break;
+        case "d2":
+            filePath = path.join(
+                __dirname,
+                "..",
+                "public",
+                "data",
+                "cypher_text_pop_culture_dictionary.txt"
+            );
+            break;
+        case "d3":
+            filePath = path.join(
+                __dirname,
+                "..",
+                "public",
+                "data",
+                "cypher_text_simple_dictionary.txt"
+            );
+            break;
+        case "d4":
+            filePath = path.join(
+                __dirname,
+                "..",
+                "public",
+                "data",
+                "cypher_text_small_dictionary.txt"
+            );
+            break;
+        default:
+            filePath = path.join(
+                __dirname,
+                "..",
+                "public",
+                "data",
+                "cypher_text_default_dictionary.txt"
+            );
+    }
+
     let array = fs
         .readFileSync(filePath, "utf8")
         .toString()

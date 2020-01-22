@@ -12,6 +12,10 @@ router.get("/rooms/:id/:player_type?", (req, res) => {
         ]
     }).then(result => {
         console.log(result);
+        if (result === undefined || result.length === 0) {
+            res.sendStatus(404).end();
+            return;
+        }
         let data = {
             player_type: 0, //0/false = agent vs 1/true = keymaster
             clue_text: result[0].latest_clue || "Waiting For New Clue",
