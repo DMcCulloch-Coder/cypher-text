@@ -1,2 +1,2 @@
 # [Cypher-Text](cypher-text.herokuapp.com)
-#### By: [Dana Cronin](https://decronin.github.io/)[<i class="fab fa-github"></i>](https://github.com/DECronin), [David McCulloch](https://dmcculloch-coder.github.io/portfolio/) & [Steve](http://stevevillardi.com/)
+#### By: [Dana Cronin](https://decronin.github.io/), [David McCulloch](https://dmcculloch-coder.github.io/portfolio/) & [Steve Villardi](http://stevevillardi.com/)
