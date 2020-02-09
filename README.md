@@ -18,14 +18,14 @@ We Strive to bring the Fun to Users Electronically with Reactive Platforms rangi
 - As a User I want there to be clear options for Key-master rotations with indicators of who they are as well as validators to best avoid cheating.
 
 ### Resources:
-_[Codenames Official Site](https://codenamesgame.com/)_
-[Bootstrap](https://getbootstrap.com/)
-[Node](https://nodejs.org/en/)
-[Express](http://expressjs.com/)
-[Express-Handlebars](https://www.npmjs.com/package/express-handlebars)
-[Socket.io](https://socket.io/)
-[Sequelize](https://sequelize.org/)
-[MySQL](https://www.mysql.com/)
-[JawsDB](https://elements.heroku.com/addons/jawsdb)
-[ESLint](https://eslint.org/)
-[Heroku](https://www.heroku.com/)
+- _[Codenames Official Site](https://codenamesgame.com/)_
+- [Bootstrap](https://getbootstrap.com/)
+- [Node](https://nodejs.org/en/)
+- [Express](http://expressjs.com/)
+- [Express-Handlebars](https://www.npmjs.com/package/express-handlebars)
+- [Socket.io](https://socket.io/)
+- [Sequelize](https://sequelize.org/)
+- [MySQL](https://www.mysql.com/)
+- [JawsDB](https://elements.heroku.com/addons/jawsdb)
+- [ESLint](https://eslint.org/)
+- [Heroku](https://www.heroku.com/)
