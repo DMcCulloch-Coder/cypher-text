@@ -1,4 +1,4 @@
-# [Cypher-Text](cypher-text.herokuapp.com)
+# [Cypher-Text](https://cypher-text.herokuapp.com/)
 #### By: [Dana Cronin](https://decronin.github.io/), [David McCulloch](https://dmcculloch-coder.github.io/portfolio/) & [Steve Villardi](http://stevevillardi.com/)
 
 ### Our Motivation(s):
