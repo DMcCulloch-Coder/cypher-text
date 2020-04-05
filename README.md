@@ -1,5 +1,5 @@
 # [Cypher-Text](cypher-text.herokuapp.com)
-#### By: [Dana Cronin](https://decronin.github.io/), [David McCulloch](https://dmcculloch-coder.github.io/portfolio/) & [Steve Villardi](http://stevevillardi.com/)
+#### By: [Dana Cronin](https://decronin.herokuapp.com/), [David McCulloch](https://dmcculloch-coder.github.io/portfolio/) & [Steve Villardi](http://stevevillardi.com/)
 
 ### Our Motivation(s):
 - A large group of people huddled around a tiny space with 25 small 4x2” cards is a recipe for Chaos. 
